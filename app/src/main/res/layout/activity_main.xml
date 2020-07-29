@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/ThermoTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="48dp"
+                android:fontFamily="sans-serif-thin"
+                android:text="Thermo"
+                android:textColor="@color/LightBlue700"
+                android:textSize="46sp"
+                app:layout_constraintEnd_toStartOf="@+id/FunTitle"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/FunTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-thin"
+                android:text="Fun"
+                android:textColor="@color/DeepOrange700"
+                android:textSize="46sp"
+                app:layout_constraintBottom_toBottomOf="@+id/ThermoTitle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/ThermoTitle"
+                app:layout_constraintTop_toTopOf="@+id/ThermoTitle" />
+
+            <View
+                android:id="@+id/ThermoUnderline"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="@color/DeepOrange700"
+                app:layout_constraintBottom_toBottomOf="@+id/ThermoTitle"
+                app:layout_constraintEnd_toEndOf="@+id/ThermoTitle"
+                app:layout_constraintStart_toStartOf="@+id/ThermoTitle" />
+
+            <View
+                android:id="@+id/FunUnderline"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="@color/LightBlue700"
+                app:layout_constraintBottom_toBottomOf="@+id/ThermoTitle"
+                app:layout_constraintEnd_toEndOf="@+id/FunTitle"
+                app:layout_constraintStart_toStartOf="@+id/FunTitle" />
+
+            <TextView
+                android:id="@+id/ChemEngCalcTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Chemical Engineering Calculator"
+                android:textColor="@color/Green900"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ThermoUnderline" />
+
+            <View
+                android:id="@+id/PhaseGamesButtonHighlight"
+                android:layout_width="1dp"
+                android:layout_height="0dp"
+                android:background="@color/LightBlue700"
+                app:layout_constraintBottom_toBottomOf="@+id/PhaseGamesButton"
+                app:layout_constraintEnd_toStartOf="@+id/PhaseGamesButton"
+                app:layout_constraintHorizontal_bias="0.15"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="@+id/ChemEngCalcTitle"
+                app:layout_constraintTop_toTopOf="@+id/PhaseGamesButton" />
+
+            <Button
+                android:id="@+id/PhaseGamesButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:background="?android:attr/selectableItemBackground"
+                android:fontFamily="sans-serif-thin"
+                android:text="    Phase Games"
+                android:textColor="@color/LightBlue700"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/PhaseGamesButtonHighlight"
+                app:layout_constraintTop_toBottomOf="@+id/ChemEngCalcTitle" />
+
+            <View
+                android:id="@+id/ChemGamesButtonHighlight"
+                android:layout_width="1dp"
+                android:layout_height="0dp"
+                android:background="@color/DeepOrange700"
+                app:layout_constraintBottom_toBottomOf="@+id/ChemGamesButton"
+                app:layout_constraintEnd_toStartOf="@+id/ChemGamesButton"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="@+id/PhaseGamesButtonHighlight"
+                app:layout_constraintTop_toTopOf="@+id/ChemGamesButton" />
+
+            <Button
+                android:id="@+id/ChemGamesButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="?android:attr/selectableItemBackground"
+                android:fontFamily="sans-serif-thin"
+                android:text="    Chem Games"
+                android:textColor="@color/DeepOrange700"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/ChemGamesButtonHighlight"
+                app:layout_constraintTop_toBottomOf="@+id/PhaseGamesButton" />
+
+            <View
+                android:id="@+id/GraphGenHighlight"
+                android:layout_width="1dp"
+                android:layout_height="0dp"
+                android:background="@color/Green700"
+                app:layout_constraintBottom_toBottomOf="@+id/GraphGenButton"
+                app:layout_constraintEnd_toStartOf="@+id/GraphGenButton"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="@+id/ChemGamesButtonHighlight"
+                app:layout_constraintTop_toTopOf="@+id/GraphGenButton" />
+
+            <Button
+                android:id="@+id/GraphGenButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="?android:attr/selectableItemBackground"
+                android:fontFamily="sans-serif-thin"
+                android:text="    Graph Generator"
+                android:textColor="@color/Green700"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/GraphGenHighlight"
+                app:layout_constraintTop_toBottomOf="@+id/ChemGamesButton" />
+
+            <View
+                android:id="@+id/AddRescHighlight"
+                android:layout_width="1dp"
+                android:layout_height="0dp"
+                android:background="@color/LightBlue700"
+                app:layout_constraintBottom_toBottomOf="@+id/AddRescButton"
+                app:layout_constraintEnd_toStartOf="@+id/AddRescButton"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="@+id/GraphGenHighlight"
+                app:layout_constraintTop_toTopOf="@+id/AddRescButton" />
+
+            <Button
+                android:id="@+id/AddRescButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="?android:attr/selectableItemBackground"
+                android:fontFamily="sans-serif-thin"
+                android:text="    Additional Resources"
+                android:textColor="@color/LightBlue700"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/AddRescHighlight"
+                app:layout_constraintTop_toBottomOf="@+id/GraphGenButton" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
