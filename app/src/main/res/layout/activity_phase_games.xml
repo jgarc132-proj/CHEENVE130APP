@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ActivityPhaseGames">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/PhaseGamesTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="48dp"
+                android:fontFamily="sans-serif-thin"
+                android:text="Phase Games"
+                android:textColor="@color/LightBlue700"
+                android:textSize="32sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/PhaseGamesUnderline"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="@color/LightBlue700"
+                app:layout_constraintEnd_toEndOf="@+id/PhaseGamesTitle"
+                app:layout_constraintStart_toStartOf="@+id/PhaseGamesTitle"
+                app:layout_constraintTop_toBottomOf="@+id/PhaseGamesTitle" />
+
+            <View
+                android:id="@+id/RLButtonHighlight"
+                android:layout_width="1dp"
+                android:layout_height="0dp"
+                android:background="@color/LightBlue700"
+                app:layout_constraintBottom_toBottomOf="@+id/RLButton"
+                app:layout_constraintEnd_toStartOf="@+id/RLButton"
+                app:layout_constraintHorizontal_bias="0.05"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="@+id/PhaseGamesTitle"
+                app:layout_constraintTop_toTopOf="@+id/RLButton" />
+
+            <Button
+                android:id="@+id/RLButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="48dp"
+                android:background="?android:attr/selectableItemBackground"
+                android:paddingVertical="7dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:drawableTop="@drawable/ic_raoultslaw"
+                android:text="Raoult's Law"
+                android:fontFamily="sans-serif-thin"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/RLButtonHighlight"
+                app:layout_constraintTop_toBottomOf="@+id/PhaseGamesTitle" />
+
+            <View
+                android:id="@+id/MRLButtonHighlight"
+                android:layout_width="1dp"
+                android:layout_height="0dp"
+                android:background="@color/LightBlue700"
+                app:layout_constraintBottom_toBottomOf="@+id/MRLButton"
+                app:layout_constraintEnd_toStartOf="@+id/MRLButton"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="@+id/RLButtonHighlight"
+                app:layout_constraintTop_toTopOf="@+id/MRLButton" />
+
+            <Button
+                android:id="@+id/MRLButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="?android:attr/selectableItemBackground"
+                android:paddingVertical="7dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:drawableTop="@drawable/ic_modraoultslaw"
+                android:text="Modified Raoult's Law"
+                android:fontFamily="sans-serif-thin"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/MRLButtonHighlight"
+                app:layout_constraintTop_toBottomOf="@+id/RLButton" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
