@@ -1,3 +1,73 @@
 <resources>
     <string name="app_name">CHEN_ENEN130 APP</string>
+
+    <string-array name="ChemicalSpecies">
+        <item>Select...</item>
+        <item>Acetone</item>
+        <item>Acetic acid</item>
+        <item>Acetonitrile</item>
+        <item>Benzene</item>
+        <item><italics>iso</italics>-Butane</item>
+        <item><italics>n</italics>-Butane</item>
+        <item>1-Butanol</item>
+        <item>2-Butanol</item>
+        <item><italics>iso</italics>-Butanol</item>
+        <item><italics>tert</italics>-Butanol</item>
+        <item>Carbon tetrachloride</item>
+        <item>Chlorobenzene</item>
+        <item>1-Chlorobutane</item>
+        <item>Chloroform</item>
+        <item>Cyclohexane</item>
+        <item>Cyclopentane</item>
+        <item><italics>n</italics>-Decane</item>
+        <item>Dichloromethane</item>
+        <item>Diethyl ether</item>
+        <item>1,4-Dioxane</item>
+        <item><italics>n</italics>-Eicosane</item>
+        <item>Ethanol</item>
+        <item>Ethylbenzene</item>
+        <item>Ethylene glycol</item>
+        <item><italics>n</italics>-Heptane</item>
+        <item><italics>n</italics>-Hexane</item>
+        <item>Methanol</item>
+        <item>Methyl acetate</item>
+        <item>Methyl ethyl ketone</item>
+        <item>Nitromethane</item>
+        <item><italics>n</italics>-Nonane</item>
+        <item><italics>iso</italics>-Octane</item>
+        <item><italics>n</italics>-Octane</item>
+        <item><italics>n</italics>-Pentane</item>
+        <item>Phenol</item>
+        <item>1-Propanol</item>
+        <item>2-Propanol</item>
+        <item>Toluene</item>
+        <item>Water</item>
+        <item><italics>o</italics>-Xylene</item>
+        <item><italics>m</italics>-Xylene</item>
+        <item><italics>p</italics>-Xylene</item>
+    </string-array>
+
+    <string-array name="temperatureUnits">
+        <item>°C</item>
+        <item>K</item>
+        <item>°F</item>
+    </string-array>
+
+    <string-array name="pressureUnits">
+        <item>kPa</item>
+        <item>atm</item>
+        <item>Pa</item>
+        <item>mmHg</item>
+        <item>torr</item>
+    </string-array>
+
+    <string-array name="RLCInfo">
+        <item>Select...</item>
+        <item>x<sub><small><small>1</small></small></sub></item>
+        <item>x<sub><small><small>2</small></small></sub></item>
+        <item>y<sub><small><small>1</small></small></sub></item>
+        <item>y<sub><small><small>2</small></small></sub></item>
+        <item>P</item>
+        <item>T</item>
+    </string-array>
 </resources>
