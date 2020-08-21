@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/OptionGame"
+        android:icon="@drawable/ic_game"
+        android:title="The Game"/>
+    <item
+        android:id="@+id/OptionCalculator"
+        android:icon="@drawable/ic_calculator"
+        android:title="Calculator"/>
+    <item
+        android:id="@+id/OptionProfile"
+        android:icon="@drawable/ic_account"
+        android:title="Profile"/>
+</menu>

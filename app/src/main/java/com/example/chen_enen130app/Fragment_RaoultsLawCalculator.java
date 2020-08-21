@@ -1,10 +1,13 @@
 package com.example.chen_enen130app;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
 import android.text.Html;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -17,7 +20,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class RaoultsLawCalculator extends AppCompatActivity {
+public class Fragment_RaoultsLawCalculator extends Fragment {
 
     Button RLCSolve;
     EditText InputValue1, InputValue2;
@@ -32,11 +35,12 @@ public class RaoultsLawCalculator extends AppCompatActivity {
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_raoults_law_calculator);
+    @Nullable
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        DatabaseAccess dbAccess = DatabaseAccess.getInstance(getApplicationContext());
+        View fragmentView = inflater.inflate(R.layout.fragment_raoults_law_calculator, container, false);
+
+        DatabaseAccess dbAccess = DatabaseAccess.getInstance(fragmentView.getContext());
         dbAccess.open();
 
         initializeArrayData(dbAccess);
@@ -44,10 +48,12 @@ public class RaoultsLawCalculator extends AppCompatActivity {
         PressureUnits = Arrays.asList(getResources().getStringArray(R.array.pressureUnits));
         TemperatureUnits = Arrays.asList(getResources().getStringArray(R.array.temperatureUnits));
 
-        initializeViews();
-        setupSpinners();
+        initializeViews(fragmentView);
+        setupSpinners(fragmentView);
 
-        retrieveVariables();
+        retrieveVariables(fragmentView);
+
+        return fragmentView;
     }
 
     private void initializeArrayData(DatabaseAccess databaseAccess) {
@@ -64,41 +70,41 @@ public class RaoultsLawCalculator extends AppCompatActivity {
         databaseAccess.PopulateArrayDouble("ANTOINE", "A", C);
     }
 
-    private void initializeViews() {
+    private void initializeViews(View fragmentView) {
 
-        RLCSolve = (Button) findViewById(R.id.RLCButtonSolve);
+        RLCSolve = (Button) fragmentView.findViewById(R.id.RLCButtonSolve);
 
-        InputValue1 = (EditText) findViewById(R.id.RLCThirdQ1Edit);
-        InputValue2 = (EditText) findViewById(R.id.RLCThirdQ2Edit);
+        InputValue1 = (EditText) fragmentView.findViewById(R.id.RLCThirdQ1Edit);
+        InputValue2 = (EditText) fragmentView.findViewById(R.id.RLCThirdQ2Edit);
 
-        ChemSpecies1 = (Spinner) findViewById(R.id.RLCFirstQ1Spinner);
-        ChemSpecies2 = (Spinner) findViewById(R.id.RLCFirstQ2Spinner);
+        ChemSpecies1 = (Spinner) fragmentView.findViewById(R.id.RLCFirstQ1Spinner);
+        ChemSpecies2 = (Spinner) fragmentView.findViewById(R.id.RLCFirstQ2Spinner);
 
-        Info1 = (Spinner) findViewById(R.id.RLCSecondQ1Spinner);
-        Info2 = (Spinner) findViewById(R.id.RLCSecondQ2Spinner);
-        Units1 = (Spinner) findViewById(R.id.RLCThirdQ1UnitSelect);
-        Units2 = (Spinner) findViewById(R.id.RLCThirdQ2UnitSelect);
+        Info1 = (Spinner) fragmentView.findViewById(R.id.RLCSecondQ1Spinner);
+        Info2 = (Spinner) fragmentView.findViewById(R.id.RLCSecondQ2Spinner);
+        Units1 = (Spinner) fragmentView.findViewById(R.id.RLCThirdQ1UnitSelect);
+        Units2 = (Spinner) fragmentView.findViewById(R.id.RLCThirdQ2UnitSelect);
     }
 
-    private void setupSpinners() {
-        ArrayAdapter<CharSequence> Info1Adapter = ArrayAdapter.createFromResource(this, R.array.RLCInfo, android.R.layout.simple_spinner_item);
+    private void setupSpinners(View fragmentView) {
+        ArrayAdapter<CharSequence> Info1Adapter = ArrayAdapter.createFromResource(fragmentView.getContext(), R.array.RLCInfo, android.R.layout.simple_spinner_item);
         Info1Adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         Info1.setAdapter(Info1Adapter);
 
-        ArrayAdapter<CharSequence> Info2Adapter = ArrayAdapter.createFromResource(this, R.array.RLCInfo, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> Info2Adapter = ArrayAdapter.createFromResource(fragmentView.getContext(), R.array.RLCInfo, android.R.layout.simple_spinner_item);
         Info2Adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         Info2.setAdapter(Info2Adapter);
 
-        ArrayAdapter<String> ChemSpecies1Adapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_item, ChemicalSpecies);
+        ArrayAdapter<String> ChemSpecies1Adapter = new ArrayAdapter<>(fragmentView.getContext(), android.R.layout.simple_spinner_item, ChemicalSpecies);
         ChemSpecies1Adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         ChemSpecies1.setAdapter(ChemSpecies1Adapter);
 
-        ArrayAdapter<String> ChemSpecies2Adapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_item, ChemicalSpecies);
+        ArrayAdapter<String> ChemSpecies2Adapter = new ArrayAdapter<>(fragmentView.getContext(), android.R.layout.simple_spinner_item, ChemicalSpecies);
         ChemSpecies2Adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         ChemSpecies2.setAdapter(ChemSpecies2Adapter);
     }
 
-    private void retrieveVariables() {
+    private void retrieveVariables(final View fragmentView) {
         Info1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
             @Override
@@ -133,7 +139,7 @@ public class RaoultsLawCalculator extends AppCompatActivity {
                         InputValue1.setHint(RLCInfo.get(position));
 
                         String[] arrayUnitsPressure = getResources().getStringArray(R.array.pressureUnits);
-                        final ArrayAdapter<CharSequence> ArrayAdapterUnitsP = new ArrayAdapter<CharSequence>(RaoultsLawCalculator.this, android.R.layout.simple_spinner_item, arrayUnitsPressure);
+                        final ArrayAdapter<CharSequence> ArrayAdapterUnitsP = new ArrayAdapter<CharSequence>(fragmentView.getContext(), android.R.layout.simple_spinner_item, arrayUnitsPressure);
                         ArrayAdapterUnitsP.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                         Units1.setAdapter(ArrayAdapterUnitsP);
                         Units1.setVisibility(View.VISIBLE);
@@ -142,7 +148,7 @@ public class RaoultsLawCalculator extends AppCompatActivity {
                         InputValue1.setHint(RLCInfo.get(position));
 
                         String[] arrayUnitsTemperature = getResources().getStringArray(R.array.temperatureUnits);
-                        final ArrayAdapter<CharSequence> ArrayAdapterUnitsT = new ArrayAdapter<CharSequence>(RaoultsLawCalculator.this, android.R.layout.simple_spinner_item, arrayUnitsTemperature);
+                        final ArrayAdapter<CharSequence> ArrayAdapterUnitsT = new ArrayAdapter<CharSequence>(fragmentView.getContext(), android.R.layout.simple_spinner_item, arrayUnitsTemperature);
                         ArrayAdapterUnitsT.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                         Units1.setAdapter(ArrayAdapterUnitsT);
                         Units1.setVisibility(View.VISIBLE);
@@ -189,7 +195,7 @@ public class RaoultsLawCalculator extends AppCompatActivity {
                         InputValue2.setHint(RLCInfo.get(position));
 
                         String[] arrayUnitsPressure = getResources().getStringArray(R.array.pressureUnits);
-                        final ArrayAdapter<CharSequence> ArrayAdapterUnitsP = new ArrayAdapter<CharSequence>(RaoultsLawCalculator.this, android.R.layout.simple_spinner_item, arrayUnitsPressure);
+                        final ArrayAdapter<CharSequence> ArrayAdapterUnitsP = new ArrayAdapter<CharSequence>(fragmentView.getContext(), android.R.layout.simple_spinner_item, arrayUnitsPressure);
                         ArrayAdapterUnitsP.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                         Units2.setAdapter(ArrayAdapterUnitsP);
                         Units2.setVisibility(View.VISIBLE);
@@ -198,7 +204,7 @@ public class RaoultsLawCalculator extends AppCompatActivity {
                         InputValue2.setHint(RLCInfo.get(position));
 
                         String[] arrayUnitsTemperature = getResources().getStringArray(R.array.temperatureUnits);
-                        final ArrayAdapter<CharSequence> ArrayAdapterUnitsT = new ArrayAdapter<CharSequence>(RaoultsLawCalculator.this, android.R.layout.simple_spinner_item, arrayUnitsTemperature);
+                        final ArrayAdapter<CharSequence> ArrayAdapterUnitsT = new ArrayAdapter<CharSequence>(fragmentView.getContext(), android.R.layout.simple_spinner_item, arrayUnitsTemperature);
                         ArrayAdapterUnitsT.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                         Units2.setAdapter(ArrayAdapterUnitsT);
                         Units2.setVisibility(View.VISIBLE);
@@ -212,7 +218,7 @@ public class RaoultsLawCalculator extends AppCompatActivity {
             }
         });
 
-        RLCSolve = (Button) findViewById(R.id.RLCButtonSolve);
+        RLCSolve = (Button) fragmentView.findViewById(R.id.RLCButtonSolve);
         RLCSolve.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
