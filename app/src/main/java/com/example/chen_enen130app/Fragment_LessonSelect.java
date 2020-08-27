@@ -17,7 +17,7 @@ public class Fragment_LessonSelect extends Fragment {
     @Nullable
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        View fragmentView = inflater.inflate(R.layout.fragment_raoults_law_calculator, container, false);
+        View fragmentView = inflater.inflate(R.layout.fragment_lesson_selection, container, false);
         Button Lesson1 = (Button) fragmentView.findViewById(R.id.Lesson1Button);
         Lesson1.setOnClickListener(new View.OnClickListener() {
             @Override

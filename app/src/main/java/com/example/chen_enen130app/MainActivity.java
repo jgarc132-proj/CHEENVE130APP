@@ -12,6 +12,12 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
+    final Fragment theGame = new Fragment_LessonSelect();
+    final Fragment thermoFunCalc = new Fragment_ThermoFunCalc();
+    final Fragment profile = new ProfileFragment();
+
+    Fragment currentFragment;
+
     FragmentManager fragmentManager = getSupportFragmentManager();
 
     @Override
@@ -28,25 +34,24 @@ public class MainActivity extends AppCompatActivity {
     private BottomNavigationView.OnNavigationItemSelectedListener navListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
             Fragment selectedFragment = null;
 
             switch(item.getItemId())
             {
                 case R.id.OptionGame:
-                    selectedFragment = new HomeFragment();
+                    selectedFragment = theGame;
                     break;
                 case R.id.OptionCalculator:
-                    selectedFragment = new Fragment_ThermoFunCalc();
+                    selectedFragment = thermoFunCalc;
                     break;
                 case R.id.OptionProfile:
-                    selectedFragment = new ProfileFragment();
+                    selectedFragment = profile;
                     break;
             }
 
-            fragmentManager.beginTransaction().replace(R.id.FragmentContainer, selectedFragment).commit();
-
+            getSupportFragmentManager().beginTransaction().replace(R.id.FragmentContainer,selectedFragment).commit();
             return true;
-
         }
     };
 }
