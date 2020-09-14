@@ -68,131 +68,164 @@
                 app:layout_constraintStart_toStartOf="@+id/FunTitle" />
 
             <TextView
-                android:id="@+id/ChemEngCalcTitle"
+                android:id="@+id/ChemEngGameTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="Chemical Engineering Calculator"
+                android:text="Chemical Engineering Games"
                 android:textColor="@color/Green900"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/ThermoUnderline" />
 
             <View
-                android:id="@+id/PhaseGamesButtonHighlight"
+                android:id="@+id/Chapter10ButtonHighlight"
                 android:layout_width="1dp"
                 android:layout_height="0dp"
                 android:background="@color/LightBlue700"
-                app:layout_constraintBottom_toBottomOf="@+id/PhaseGamesButton"
-                app:layout_constraintEnd_toStartOf="@+id/PhaseGamesButton"
+                app:layout_constraintBottom_toBottomOf="@+id/Chapter10Button"
+                app:layout_constraintEnd_toStartOf="@+id/Chapter10Button"
                 app:layout_constraintHorizontal_bias="0.12"
                 app:layout_constraintHorizontal_chainStyle="packed"
-                app:layout_constraintStart_toStartOf="@+id/ChemEngCalcTitle"
-                app:layout_constraintTop_toTopOf="@+id/PhaseGamesButton" />
+                app:layout_constraintStart_toStartOf="@+id/ChemEngGameTitle"
+                app:layout_constraintTop_toTopOf="@+id/Chapter10Button" />
 
             <Button
-                android:id="@+id/PhaseGamesButton"
+                android:id="@+id/Chapter10Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="50dp"
                 android:background="?android:attr/selectableItemBackground"
                 android:fontFamily="sans-serif-thin"
                 android:paddingLeft="15dp"
                 android:paddingRight="15dp"
-                android:text="Phase Games"
+                android:text="Chapter 10"
                 android:textColor="@color/LightBlue700"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/PhaseGamesButtonHighlight"
-                app:layout_constraintTop_toBottomOf="@+id/ChemEngCalcTitle" />
+                app:layout_constraintStart_toEndOf="@+id/Chapter10ButtonHighlight"
+                app:layout_constraintTop_toBottomOf="@+id/ChemEngGameTitle" />
 
             <View
-                android:id="@+id/ChemGamesButtonHighlight"
+                android:id="@+id/Chapter11ButtonHighlight"
                 android:layout_width="1dp"
                 android:layout_height="0dp"
                 android:background="@color/DeepOrange700"
-                app:layout_constraintBottom_toBottomOf="@+id/ChemGamesButton"
-                app:layout_constraintEnd_toStartOf="@+id/ChemGamesButton"
+                app:layout_constraintBottom_toBottomOf="@+id/Chapter11Button"
+                app:layout_constraintEnd_toStartOf="@+id/Chapter11Button"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintHorizontal_chainStyle="packed"
-                app:layout_constraintStart_toStartOf="@+id/PhaseGamesButtonHighlight"
-                app:layout_constraintTop_toTopOf="@+id/ChemGamesButton" />
+                app:layout_constraintStart_toStartOf="@+id/Chapter10ButtonHighlight"
+                app:layout_constraintTop_toTopOf="@+id/Chapter11Button" />
+
 
             <Button
-                android:id="@+id/ChemGamesButton"
+                android:id="@+id/Chapter11Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="40dp"
                 android:background="?android:attr/selectableItemBackground"
                 android:fontFamily="sans-serif-thin"
                 android:paddingLeft="15dp"
                 android:paddingRight="15dp"
-                android:text="Chem Games"
+                android:text="Chapter 11"
                 android:textColor="@color/DeepOrange700"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/ChemGamesButtonHighlight"
-                app:layout_constraintTop_toBottomOf="@+id/PhaseGamesButton" />
+                app:layout_constraintStart_toEndOf="@+id/Chapter11ButtonHighlight"
+                app:layout_constraintTop_toBottomOf="@+id/Chapter10Button" />
 
             <View
-                android:id="@+id/GraphGenHighlight"
+                android:id="@+id/Chapter12ButtonHighlight"
                 android:layout_width="1dp"
                 android:layout_height="0dp"
                 android:background="@color/Green700"
-                app:layout_constraintBottom_toBottomOf="@+id/GraphGenButton"
-                app:layout_constraintEnd_toStartOf="@+id/GraphGenButton"
+                app:layout_constraintBottom_toBottomOf="@+id/Chapter12Button"
+                app:layout_constraintEnd_toStartOf="@+id/Chapter12Button"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintHorizontal_chainStyle="packed"
-                app:layout_constraintStart_toStartOf="@+id/ChemGamesButtonHighlight"
-                app:layout_constraintTop_toTopOf="@+id/GraphGenButton" />
+                app:layout_constraintStart_toStartOf="@+id/Chapter11ButtonHighlight"
+                app:layout_constraintTop_toTopOf="@+id/Chapter12Button" />
 
             <Button
-                android:id="@+id/GraphGenButton"
+                android:id="@+id/Chapter12Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="40dp"
                 android:background="?android:attr/selectableItemBackground"
                 android:fontFamily="sans-serif-thin"
                 android:paddingLeft="15dp"
                 android:paddingRight="15dp"
-                android:text="Graph Generator"
+                android:text="Chapter 12"
                 android:textColor="@color/Green700"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/GraphGenHighlight"
-                app:layout_constraintTop_toBottomOf="@+id/ChemGamesButton" />
+                app:layout_constraintStart_toEndOf="@+id/Chapter12ButtonHighlight"
+                app:layout_constraintTop_toBottomOf="@+id/Chapter11Button" />
 
             <View
-                android:id="@+id/AddRescHighlight"
+                android:id="@+id/Chapter13ButtonHighlight"
                 android:layout_width="1dp"
                 android:layout_height="0dp"
                 android:background="@color/LightBlue700"
-                app:layout_constraintBottom_toBottomOf="@+id/AddRescButton"
-                app:layout_constraintEnd_toStartOf="@+id/AddRescButton"
+                app:layout_constraintBottom_toBottomOf="@+id/Chapter13Button"
+                app:layout_constraintEnd_toStartOf="@+id/Chapter13Button"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintHorizontal_chainStyle="packed"
-                app:layout_constraintStart_toStartOf="@+id/GraphGenHighlight"
-                app:layout_constraintTop_toTopOf="@+id/AddRescButton" />
+                app:layout_constraintStart_toStartOf="@+id/Chapter12ButtonHighlight"
+                app:layout_constraintTop_toTopOf="@+id/Chapter13Button" />
 
             <Button
-                android:id="@+id/AddRescButton"
+                android:id="@+id/Chapter13Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="40dp"
                 android:background="?android:attr/selectableItemBackground"
                 android:fontFamily="sans-serif-thin"
                 android:paddingLeft="15dp"
                 android:paddingRight="15dp"
-                android:text="Additional Resources"
+                android:text="Chapter 13"
                 android:textColor="@color/LightBlue700"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/AddRescHighlight"
-                app:layout_constraintTop_toBottomOf="@+id/GraphGenButton" />
+                app:layout_constraintStart_toEndOf="@+id/Chapter13ButtonHighlight"
+                app:layout_constraintTop_toBottomOf="@+id/Chapter12Button" />
+
+            <View
+                android:id="@+id/Chapter14ButtonHighlight"
+                android:layout_width="1dp"
+                android:layout_height="0dp"
+                android:background="@color/DeepOrange700"
+                app:layout_constraintBottom_toBottomOf="@+id/Chapter14Button"
+                app:layout_constraintEnd_toStartOf="@+id/Chapter14Button"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="@+id/Chapter13ButtonHighlight"
+                app:layout_constraintTop_toTopOf="@+id/Chapter14Button" />
+
+            <Button
+                android:id="@+id/Chapter14Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="40dp"
+                android:background="?android:attr/selectableItemBackground"
+                android:fontFamily="sans-serif-thin"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:text="Chapter 14"
+                android:textColor="@color/DeepOrange700"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/Chapter14ButtonHighlight"
+                app:layout_constraintTop_toBottomOf="@+id/Chapter13Button" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
