@@ -1,0 +1,1334 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    tools:context=".ChemGames"
+    android:id="@+id/ScrollViewChemGames"
+    android:background="@color/White">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        tools:context="com.example.shilpan.thermocalculator.ChemGames"
+        android:id="@+id/RelativeLayoutChemGames"
+        android:background="@color/White">
+
+        <TextView
+            android:id="@+id/textViewChemEqTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:fontFamily="sans-serif-thin"
+            android:singleLine="true"
+            android:text="Chemical Equilibrium Calculator"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/LightBlue700"
+            android:textSize="30dp" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:id="@+id/ViewTitleUnderline"
+            android:layout_marginTop="5dp"
+            android:layout_below="@+id/textViewChemEqTitle"
+            android:layout_centerHorizontal="true"
+            android:background="@color/LightBlue700"
+            android:layout_marginLeft="300dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="How many reactants and products are in your reaction?"
+            android:id="@+id/textViewInstructionsNumbers"
+            android:layout_marginTop="50dp"
+            android:layout_below="@+id/ViewTitleUnderline"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="What are the reactants in your system? What is each reactant&apos;s stoichiometric coefficient? How many moles of each reactant are there?"
+            android:id="@+id/textViewInstructionsReactants"
+            android:layout_below="@+id/textViewInstructionsNumbers"
+            android:layout_alignStart="@+id/textViewInstructionsNumbers"
+            android:layout_marginTop="100dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="What are the products in your system? What is each product&apos;s stoichiometric coefficient? How many moles are produced?"
+            android:id="@+id/textViewInstructionsProducts"
+            android:layout_below="@+id/textViewK10"
+            android:layout_alignParentEnd="true"
+            android:layout_alignStart="@+id/textViewInstructionsNumbers"
+            android:layout_marginTop="35dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="What are your system variables?"
+            android:id="@+id/textViewInstructionsSysVariables"
+            android:layout_below="@+id/textViewI10"
+            android:layout_alignStart="@+id/textViewInstructionsProducts"
+            android:layout_alignLeft="@+id/textViewInstructionsNumbers"
+            android:layout_marginTop="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="What are you solving for?"
+            android:id="@+id/textViewInstructionsSolving"
+            android:layout_below="@+id/textView16"
+            android:layout_alignStart="@+id/textViewInstructionsProducts"
+            android:layout_marginTop="20dp"
+            android:layout_alignLeft="@+id/textViewInstructionsNumbers"
+            android:visibility="gone" />
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinnerK1"
+            android:spinnerMode="dropdown"
+            android:visibility="visible"
+            android:layout_toRightOf="@+id/textViewK1"
+            android:layout_marginTop="18dp"
+            android:layout_below="@+id/textViewInstructionsReactants"
+            android:layout_toStartOf="@+id/textView35" />
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinnerK2"
+            android:spinnerMode="dropdown"
+            android:visibility="visible"
+            android:layout_toRightOf="@+id/textViewK2"
+            android:layout_below="@+id/textViewK1"
+            android:layout_marginTop="18dp"
+            android:layout_alignLeft="@+id/spinnerK1"
+            android:layout_alignEnd="@+id/spinnerK1" />
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinnerK3"
+            android:layout_below="@+id/textViewK2"
+            android:layout_toRightOf="@+id/textViewK3"
+            android:spinnerMode="dropdown"
+            android:visibility="visible"
+            android:layout_marginTop="18dp"
+            android:layout_alignLeft="@+id/spinnerK1"
+            android:layout_alignEnd="@+id/spinnerK1" />
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinnerK4"
+            android:layout_below="@+id/textViewK3"
+            android:layout_toRightOf="@+id/textViewK4"
+            android:spinnerMode="dropdown"
+            android:visibility="visible"
+            android:layout_marginTop="18dp"
+            android:layout_alignLeft="@+id/spinnerK1"
+            android:layout_alignEnd="@+id/spinnerK3" />
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinnerK5"
+            android:layout_below="@+id/textViewK4"
+            android:layout_toRightOf="@+id/textViewK5"
+            android:spinnerMode="dropdown"
+            android:visibility="visible"
+            android:layout_marginTop="18dp"
+            android:layout_alignLeft="@+id/spinnerK1"
+            android:layout_alignEnd="@+id/spinnerK4" />
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinnerK6"
+            android:layout_below="@+id/textViewK5"
+            android:layout_toRightOf="@+id/textViewK6"
+            android:spinnerMode="dropdown"
+            android:visibility="visible"
+            android:layout_marginTop="18dp"
+            android:layout_alignLeft="@+id/spinnerK1"
+            android:layout_alignEnd="@+id/spinnerK5" />
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinnerK7"
+            android:layout_below="@+id/textViewK6"
+            android:layout_toRightOf="@+id/textViewK7"
+            android:spinnerMode="dropdown"
+            android:visibility="visible"
+            android:layout_marginTop="18dp"
+            android:layout_alignLeft="@+id/spinnerK1"
+            android:layout_alignEnd="@+id/spinnerK6" />
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinnerK8"
+            android:layout_below="@+id/textViewK7"
+            android:layout_toRightOf="@+id/textViewK8"
+            android:spinnerMode="dropdown"
+            android:visibility="visible"
+            android:layout_marginTop="18dp"
+            android:layout_alignLeft="@+id/spinnerK1"
+            android:layout_alignEnd="@+id/spinnerK7" />
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinnerK9"
+            android:layout_below="@+id/textViewK8"
+            android:layout_toRightOf="@+id/textViewK9"
+            android:spinnerMode="dropdown"
+            android:visibility="visible"
+            android:layout_marginTop="18dp"
+            android:layout_alignLeft="@+id/spinnerK1"
+            android:layout_alignEnd="@+id/spinnerK8" />
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinnerK10"
+            android:layout_below="@+id/textViewK9"
+            android:spinnerMode="dropdown"
+            android:visibility="visible"
+            android:layout_marginTop="18dp"
+            android:layout_alignLeft="@+id/spinnerK1"
+            android:layout_alignEnd="@+id/spinnerK9" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1. "
+            android:id="@+id/textViewL1"
+            android:layout_marginLeft="30dp"
+            android:layout_below="@+id/textViewInstructionsSysVariables"
+            android:layout_alignStart="@+id/textViewInstructionsSysVariables"
+            android:layout_marginTop="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2. "
+            android:id="@+id/textViewL2"
+            android:layout_below="@+id/textViewL1"
+            android:layout_alignLeft="@+id/textViewL1"
+            android:layout_marginTop="20dp"
+            android:visibility="invisible" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3. "
+            android:id="@+id/textViewI3"
+            android:layout_below="@+id/textViewI2"
+            android:layout_alignStart="@+id/textViewI2"
+            android:layout_marginTop="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4. "
+            android:id="@+id/textViewI4"
+            android:layout_below="@+id/textViewI3"
+            android:layout_alignStart="@+id/textViewI3"
+            android:layout_marginTop="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="5. "
+            android:id="@+id/textViewI5"
+            android:layout_below="@+id/textViewI4"
+            android:layout_alignStart="@+id/textViewI4"
+            android:layout_marginTop="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="6. "
+            android:id="@+id/textViewI6"
+            android:layout_below="@+id/textViewI5"
+            android:layout_alignStart="@+id/textViewI5"
+            android:layout_marginTop="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="7. "
+            android:id="@+id/textViewI7"
+            android:layout_below="@+id/textViewI6"
+            android:layout_alignStart="@+id/textViewI6"
+            android:layout_marginTop="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="8. "
+            android:id="@+id/textViewI8"
+            android:layout_below="@+id/textViewI7"
+            android:layout_alignStart="@+id/textViewI7"
+            android:layout_marginTop="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="9. "
+            android:id="@+id/textViewI9"
+            android:layout_below="@+id/textViewI8"
+            android:layout_alignStart="@+id/textViewI8"
+            android:layout_marginTop="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10. "
+            android:id="@+id/textViewI10"
+            android:layout_below="@+id/textViewI9"
+            android:layout_alignStart="@+id/textViewI9"
+            android:layout_marginTop="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1. "
+            android:id="@+id/textViewI1"
+            android:layout_below="@+id/textViewInstructionsProducts"
+            android:layout_alignStart="@+id/textViewInstructionsProducts"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="30dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2. "
+            android:id="@+id/textViewI2"
+            android:layout_below="@+id/textViewI1"
+            android:layout_alignStart="@+id/textViewI1"
+            android:layout_marginTop="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1. "
+            android:id="@+id/textViewJ1"
+            android:layout_below="@+id/textViewInstructionsSolving"
+            android:layout_alignStart="@+id/textViewInstructionsProducts"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="30dp"
+            android:visibility="gone" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2. "
+            android:id="@+id/textViewJ2"
+            android:layout_below="@+id/textViewJ1"
+            android:layout_alignStart="@+id/textViewJ1"
+            android:layout_marginTop="20dp"
+            android:visibility="gone" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1. "
+            android:id="@+id/textViewK1"
+            android:layout_below="@+id/textViewInstructionsReactants"
+            android:layout_alignStart="@+id/textViewInstructionsNumbers"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="30dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2. "
+            android:id="@+id/textViewK2"
+            android:layout_below="@+id/textViewK1"
+            android:layout_alignStart="@+id/textViewK1"
+            android:layout_marginTop="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3. "
+            android:id="@+id/textViewK3"
+            android:layout_below="@+id/textViewK2"
+            android:layout_alignStart="@+id/textViewK2"
+            android:layout_marginTop="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4. "
+            android:id="@+id/textViewK4"
+            android:layout_below="@+id/textViewK3"
+            android:layout_alignStart="@+id/textViewK3"
+            android:layout_marginTop="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="5. "
+            android:id="@+id/textViewK5"
+            android:layout_below="@+id/textViewK4"
+            android:layout_alignStart="@+id/textViewK4"
+            android:layout_marginTop="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="6. "
+            android:id="@+id/textViewK6"
+            android:layout_below="@+id/textViewK5"
+            android:layout_alignStart="@+id/textViewK5"
+            android:layout_marginTop="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="7. "
+            android:id="@+id/textViewK7"
+            android:layout_below="@+id/textViewK6"
+            android:layout_alignStart="@+id/textViewK6"
+            android:layout_marginTop="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="8. "
+            android:id="@+id/textViewK8"
+            android:layout_below="@+id/textViewK7"
+            android:layout_alignStart="@+id/textViewK7"
+            android:layout_marginTop="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="9. "
+            android:id="@+id/textViewK9"
+            android:layout_below="@+id/textViewK8"
+            android:layout_alignStart="@+id/textViewK8"
+            android:layout_marginTop="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10. "
+            android:id="@+id/textViewK10"
+            android:layout_below="@+id/textViewK9"
+            android:layout_alignStart="@+id/textViewK9"
+            android:layout_marginTop="20dp" />
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinnerI1"
+            android:spinnerMode="dropdown"
+            android:visibility="visible"
+            android:layout_toRightOf="@+id/textViewI1"
+            android:layout_marginTop="18dp"
+            android:layout_below="@+id/textViewInstructionsProducts"
+            android:layout_alignEnd="@+id/spinnerK10" />
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinnerI2"
+            android:spinnerMode="dropdown"
+            android:visibility="visible"
+            android:layout_toRightOf="@+id/textViewI2"
+            android:layout_below="@+id/textViewI1"
+            android:layout_marginTop="18dp"
+            android:layout_alignRight="@+id/textViewInstructionsNumbers"
+            android:layout_alignLeft="@+id/spinnerI1"/>
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinnerI3"
+            android:layout_below="@+id/textViewI2"
+            android:layout_toRightOf="@+id/textViewI3"
+            android:spinnerMode="dropdown"
+            android:visibility="visible"
+            android:layout_marginTop="18dp"
+            android:layout_alignRight="@+id/textViewInstructionsNumbers"
+            android:layout_alignLeft="@+id/spinnerI1"/>
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinnerI4"
+            android:layout_below="@+id/textViewI3"
+            android:layout_toRightOf="@+id/textViewI4"
+            android:spinnerMode="dropdown"
+            android:visibility="visible"
+            android:layout_marginTop="18dp"
+            android:layout_alignRight="@+id/textViewInstructionsNumbers"
+            android:layout_alignLeft="@+id/spinnerI1"/>
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinnerI5"
+            android:layout_below="@+id/textViewI4"
+            android:layout_toRightOf="@+id/textViewI5"
+            android:spinnerMode="dropdown"
+            android:visibility="visible"
+            android:layout_marginTop="18dp"
+            android:layout_alignRight="@+id/textViewInstructionsNumbers"
+            android:layout_alignLeft="@+id/spinnerI1"/>
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinnerI6"
+            android:layout_below="@+id/textViewI5"
+            android:layout_toRightOf="@+id/textViewI6"
+            android:spinnerMode="dropdown"
+            android:visibility="visible"
+            android:layout_marginTop="18dp"
+            android:layout_alignRight="@+id/textViewInstructionsNumbers"
+            android:layout_alignLeft="@+id/spinnerI1"/>
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinnerI7"
+            android:layout_below="@+id/textViewI6"
+            android:layout_toRightOf="@+id/textViewI7"
+            android:spinnerMode="dropdown"
+            android:visibility="visible"
+            android:layout_marginTop="18dp"
+            android:layout_alignRight="@+id/textViewInstructionsNumbers"
+            android:layout_alignLeft="@+id/spinnerI1"/>
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinnerI8"
+            android:layout_below="@+id/textViewI7"
+            android:layout_toRightOf="@+id/textViewI8"
+            android:spinnerMode="dropdown"
+            android:visibility="visible"
+            android:layout_marginTop="18dp"
+            android:layout_alignRight="@+id/textViewInstructionsNumbers"
+            android:layout_alignLeft="@+id/spinnerI1"/>
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinnerI9"
+            android:layout_below="@+id/textViewI8"
+            android:layout_toRightOf="@+id/textViewI9"
+            android:spinnerMode="dropdown"
+            android:visibility="visible"
+            android:layout_marginTop="18dp"
+            android:layout_alignRight="@+id/textViewInstructionsNumbers"
+            android:layout_alignLeft="@+id/spinnerI1"/>
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinnerI10"
+            android:layout_below="@+id/textViewI9"
+            android:spinnerMode="dropdown"
+            android:visibility="visible"
+            android:layout_marginTop="18dp"
+            android:layout_alignRight="@+id/textViewInstructionsNumbers"
+            android:layout_alignLeft="@+id/spinnerI1" />
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinnerJ1"
+            android:spinnerMode="dropdown"
+            android:visibility="gone"
+            android:layout_toRightOf="@+id/textViewJ1"
+            android:layout_toEndOf="@+id/textViewJ1"
+            android:layout_below="@+id/textViewInstructionsSolving"
+            android:layout_marginTop="18dp"
+            android:layout_alignRight="@+id/textViewInstructionsNumbers" />
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinnerJ2"
+            android:spinnerMode="dropdown"
+            android:visibility="gone"
+            android:layout_toRightOf="@+id/textViewJ2"
+            android:layout_marginTop="16dp"
+            android:layout_below="@+id/textViewJ1"
+            android:layout_alignRight="@+id/textViewInstructionsNumbers" />
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinnerComp1"
+            android:spinnerMode="dialog"
+            android:visibility="gone"
+            android:layout_toRightOf="@+id/textViewK1"
+            android:layout_toEndOf="@+id/textViewK1"
+            android:layout_marginTop="18dp"
+            android:layout_below="@+id/textViewInstructionsNumbers"
+            android:layout_alignRight="@+id/textViewInstructionsNumbers" />
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinnerComp2"
+            android:spinnerMode="dialog"
+            android:visibility="gone"
+            android:layout_toRightOf="@+id/textViewK2"
+            android:layout_toEndOf="@+id/textViewK2"
+            android:layout_marginTop="16dp"
+            android:layout_below="@+id/spinnerComp1"
+            android:layout_alignRight="@+id/textViewInstructionsNumbers" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:ems="10"
+            android:id="@+id/editTextSysTemperature"
+            android:layout_alignStart="@+id/spinnerI1"
+            android:layout_alignEnd="@+id/spinnerI1"
+            android:layout_below="@+id/textViewInstructionsSysVariables"
+            android:layout_marginTop="8dp"
+            android:textSize="15sp"
+            android:hint="Temperature" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:ems="10"
+            android:id="@+id/editTextSysPressure"
+            android:layout_alignEnd="@+id/editTextSysTemperature"
+            android:layout_alignStart="@+id/editTextSysTemperature"
+            android:textSize="16dp"
+            android:layout_below="@+id/textViewInstructionsSysVariables"
+            android:layout_marginTop="48dp"
+            android:hint="System Pressure"
+            android:visibility="invisible" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:ems="10"
+            android:id="@+id/editTextSysExtra"
+            android:textSize="16dp"
+            android:hint="EXTRA"
+            android:layout_below="@+id/textViewInstructionsSysVariables"
+            android:layout_marginTop="88dp"
+            android:layout_alignEnd="@+id/editTextSysPressure"
+            android:layout_toEndOf="@+id/textView16"
+            android:visibility="gone" />
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinnerSolvingForUnitsT"
+            android:visibility="visible"
+            android:textColor="@color/Black"
+            android:spinnerMode="dropdown"
+            android:layout_below="@+id/textViewInstructionsSysVariables"
+            android:layout_marginTop="17dp"
+            android:layout_toRightOf="@+id/editTextSysPressure" />
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinnerSolvingForUnitsP"
+            android:visibility="gone"
+            android:textColor="@color/Black"
+            android:spinnerMode="dropdown"
+            android:layout_below="@+id/spinnerSolvingForUnitsT"
+            android:layout_toEndOf="@+id/editTextSysPressure"
+            android:layout_alignLeft="@+id/spinnerSolvingForUnitsT"
+            android:layout_marginTop="17dp" />
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinnerSolvingForUnitsExtra"
+            android:visibility="gone"
+            android:textColor="@color/Black"
+            android:spinnerMode="dropdown"
+            android:layout_below="@+id/spinnerSolvingForUnitsP"
+            android:layout_alignStart="@+id/spinnerSolvingForUnitsP"
+            android:layout_marginTop="17dp" />
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinnerL2"
+            android:layout_toEndOf="@+id/editTextSysPressure"
+            android:visibility="gone"
+            android:textColor="@color/Black"
+            android:spinnerMode="dropdown"
+            android:layout_toRightOf="@+id/editTextSysPressure"
+            android:layout_below="@+id/textViewInstructionsSysVariables"
+            android:layout_marginTop="52dp" />
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinnerJ1units"
+            android:visibility="gone"
+            android:textColor="@color/Black"
+            android:spinnerMode="dropdown"
+            android:layout_alignTop="@+id/spinnerJ1"
+            android:layout_toRightOf="@+id/spinnerJ1" />
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinnerJ2units"
+            android:visibility="gone"
+            android:textColor="@color/Black"
+            android:spinnerMode="dropdown"
+            android:layout_alignTop="@+id/spinnerJ2"
+            android:layout_toRightOf="@+id/spinnerJ2" />
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="   SOLVE   "
+            android:id="@+id/buttonSubmitChemGames"
+            android:foregroundTint="@color/LightBlue500"
+            android:foregroundTintMode="src_in"
+            android:foregroundGravity="bottom"
+            android:fontFamily="sans-serif-thin"
+            android:textStyle="bold"
+            android:textColor="@color/LightBlue700"
+            android:background="?android:attr/selectableItemBackground"
+            android:longClickable="true"
+            android:gravity="center_vertical"
+            android:layout_below="@+id/textViewJ2"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="70dp" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="fill_parent"
+            android:id="@+id/ViewButtonPhaseGames"
+            android:background="@color/LightBlue700"
+            android:layout_toLeftOf="@+id/buttonSubmitChemGames"
+            android:layout_alignBottom="@+id/buttonSubmitChemGames"
+            android:layout_alignTop="@+id/buttonSubmitChemGames"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewRaoultsLawAnswer"
+            android:layout_below="@+id/buttonSubmitChemGames"
+            android:layout_alignStart="@id/textViewInstructionsNumbers"
+            android:layout_alignEnd="@id/textViewInstructionsNumbers"
+            android:layout_marginTop="40dp"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="sans-serif-thin"
+            android:textColor="@color/Black"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:id="@+id/imageView2"
+            android:layout_marginTop="36dp"
+            android:layout_below="@+id/ViewTitleUnderline"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1. "
+            android:id="@+id/textView12"
+            android:layout_marginLeft="30dp"
+            android:layout_below="@+id/textViewInstructionsNumbers"
+            android:layout_alignStart="@+id/textViewInstructionsNumbers"
+            android:layout_marginTop="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2. "
+            android:id="@+id/textView13"
+            android:layout_alignTop="@+id/spinnerNumProducts"
+            android:layout_alignStart="@+id/textView12" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3. "
+            android:id="@+id/textView16"
+            android:layout_below="@+id/textViewL2"
+            android:layout_alignStart="@+id/textViewInstructionsSolving"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            android:visibility="gone" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Number of Reactants:"
+            android:id="@+id/textView14"
+            android:layout_above="@+id/spinnerNumProducts"
+            android:layout_toEndOf="@+id/textView12" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Number of Products:"
+            android:id="@+id/textView15"
+            android:layout_alignBottom="@+id/textView13"
+            android:layout_toEndOf="@+id/textView13" />
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinnerNumReactants"
+            android:spinnerMode="dropdown"
+            android:visibility="visible"
+            android:layout_below="@+id/textViewInstructionsNumbers"
+            android:layout_marginTop="18dp"
+            android:layout_alignEnd="@+id/textViewInstructionsNumbers"
+            android:layout_toEndOf="@+id/textView14" />
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinnerNumProducts"
+            android:spinnerMode="dropdown"
+            android:visibility="visible"
+            android:layout_alignStart="@+id/spinnerNumReactants"
+            android:layout_alignEnd="@+id/spinnerNumReactants"
+            android:layout_below="@+id/textView12"
+            android:layout_marginTop="18dp" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scrollHorizontally="false"
+            android:layout_weight ="1"
+            android:maxLength ="2000"
+            android:numeric="integer"
+            android:lines="1"
+            android:id="@+id/editTextM1"
+            android:textSize="14sp"
+            android:hint="Stoich. coeff."
+            android:layout_alignStart="@+id/spinnerSolvingForUnitsT"
+            android:layout_marginTop="8dp"
+            android:layout_below="@+id/textViewInstructionsProducts"
+            android:layout_alignEnd="@+id/editTextN10" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scrollHorizontally="false"
+            android:layout_weight ="1"
+            android:maxLength ="2000"
+            android:numeric="integer"
+            android:lines="1"
+            android:id="@+id/editTextM2"
+            android:layout_alignStart="@+id/editTextM1"
+            android:layout_alignEnd="@+id/editTextM1"
+            android:textSize="14sp"
+            android:hint="Stoich. coeff."
+            android:layout_below="@+id/textViewInstructionsProducts"
+            android:layout_marginTop="46dp" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scrollHorizontally="false"
+            android:layout_weight ="1"
+            android:maxLength ="2000"
+            android:numeric="integer"
+            android:lines="1"
+            android:id="@+id/editTextM3"
+            android:layout_alignStart="@+id/editTextM1"
+            android:layout_alignEnd="@+id/editTextM1"
+            android:textSize="14sp"
+            android:hint="Stoich. coeff."
+            android:layout_below="@+id/textViewInstructionsProducts"
+            android:layout_marginTop="84dp" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scrollHorizontally="false"
+            android:layout_weight ="1"
+            android:maxLength ="2000"
+            android:numeric="integer"
+            android:lines="1"
+            android:id="@+id/editTextM4"
+            android:layout_alignStart="@+id/editTextM1"
+            android:layout_alignEnd="@+id/editTextM1"
+            android:textSize="14sp"
+            android:hint="Stoich. coeff."
+            android:layout_below="@+id/textViewInstructionsProducts"
+            android:layout_marginTop="122dp" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scrollHorizontally="false"
+            android:layout_weight ="1"
+            android:maxLength ="2000"
+            android:numeric="integer"
+            android:lines="1"
+            android:id="@+id/editTextM5"
+            android:layout_alignStart="@+id/editTextM1"
+            android:layout_alignEnd="@+id/editTextM1"
+            android:textSize="14sp"
+            android:hint="Stoich. coeff."
+            android:layout_below="@+id/textViewInstructionsProducts"
+            android:layout_marginTop="158dp" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scrollHorizontally="false"
+            android:layout_weight ="1"
+            android:maxLength ="2000"
+            android:numeric="integer"
+            android:lines="1"
+            android:id="@+id/editTextM6"
+            android:layout_alignStart="@+id/editTextM1"
+            android:layout_alignEnd="@+id/editTextM1"
+            android:textSize="14sp"
+            android:hint="Stoich. coeff."
+            android:layout_below="@+id/textViewInstructionsProducts"
+            android:layout_marginTop="196dp" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scrollHorizontally="false"
+            android:layout_weight ="1"
+            android:maxLength ="2000"
+            android:numeric="integer"
+            android:lines="1"
+            android:id="@+id/editTextM7"
+            android:layout_alignStart="@+id/editTextM1"
+            android:layout_alignEnd="@+id/editTextM1"
+            android:textSize="14sp"
+            android:hint="Stoich. coeff."
+            android:layout_below="@+id/textViewInstructionsProducts"
+            android:layout_marginTop="234dp" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scrollHorizontally="false"
+            android:layout_weight ="1"
+            android:maxLength ="2000"
+            android:numeric="integer"
+            android:lines="1"
+            android:id="@+id/editTextM8"
+            android:layout_alignStart="@+id/editTextM1"
+            android:layout_alignEnd="@+id/editTextM1"
+            android:textSize="14sp"
+            android:hint="Stoich. coeff."
+            android:layout_below="@+id/textViewInstructionsProducts"
+            android:layout_marginTop="272dp" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scrollHorizontally="false"
+            android:layout_weight ="1"
+            android:maxLength ="2000"
+            android:numeric="integer"
+            android:lines="1"
+            android:id="@+id/editTextM9"
+            android:layout_alignStart="@+id/editTextM1"
+            android:layout_alignEnd="@+id/editTextM1"
+            android:textSize="14sp"
+            android:hint="Stoich. coeff."
+            android:layout_below="@+id/textViewInstructionsProducts"
+            android:layout_marginTop="310dp" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scrollHorizontally="false"
+            android:layout_weight ="1"
+            android:maxLength ="2000"
+            android:numeric="integer"
+            android:lines="1"
+            android:id="@+id/editTextM10"
+            android:layout_alignStart="@+id/editTextM1"
+            android:layout_alignEnd="@+id/editTextM1"
+            android:textSize="14sp"
+            android:hint="Stoich. coeff."
+            android:layout_below="@+id/textViewInstructionsProducts"
+            android:layout_marginTop="348dp" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/editTextN1"
+            android:hint="Stoich. coeff."
+            android:layout_alignStart="@+id/spinnerSolvingForUnitsT"
+            android:layout_marginTop="8dp"
+            android:layout_below="@+id/textViewInstructionsReactants"
+            android:textSize="14sp"
+            android:width="90dp"
+            android:scrollHorizontally="false"
+            android:layout_weight ="1"
+            android:maxLength ="2000"
+            android:numeric="integer"
+            android:lines="1"
+            android:layout_alignEnd="@+id/spinnerNumProducts" />
+        <!--android:inputType="numberDecimal|textMultiLine" -->
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scrollHorizontally="false"
+            android:layout_weight ="1"
+            android:maxLength ="2000"
+            android:numeric="integer"
+            android:lines="1"
+            android:id="@+id/editTextN2"
+            android:layout_alignStart="@+id/editTextN1"
+            android:layout_alignEnd="@+id/editTextN1"
+            android:textSize="14sp"
+            android:hint="Stoich. coeff."
+            android:layout_below="@+id/textViewInstructionsReactants"
+            android:layout_marginTop="46dp"
+            android:width="90dp" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scrollHorizontally="false"
+            android:layout_weight ="1"
+            android:maxLength ="2000"
+            android:numeric="integer"
+            android:lines="1"
+            android:id="@+id/editTextN3"
+            android:layout_alignStart="@+id/editTextN1"
+            android:layout_alignEnd="@+id/editTextN1"
+            android:textSize="14sp"
+            android:hint="Stoich. coeff."
+            android:layout_below="@+id/textViewInstructionsReactants"
+            android:layout_marginTop="84dp"
+            android:width="90dp" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scrollHorizontally="false"
+            android:layout_weight ="1"
+            android:maxLength ="2000"
+            android:numeric="integer"
+            android:lines="1"
+            android:id="@+id/editTextN4"
+            android:layout_alignStart="@+id/editTextN1"
+            android:layout_alignEnd="@+id/editTextN1"
+            android:textSize="14sp"
+            android:hint="Stoich. coeff."
+            android:layout_below="@+id/textViewInstructionsReactants"
+            android:layout_marginTop="122dp"
+            android:width="90dp" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scrollHorizontally="false"
+            android:layout_weight ="1"
+            android:maxLength ="2000"
+            android:numeric="integer"
+            android:lines="1"
+            android:id="@+id/editTextN5"
+            android:layout_alignStart="@+id/editTextN1"
+            android:layout_alignEnd="@+id/editTextN1"
+            android:textSize="14sp"
+            android:hint="Stoich. coeff."
+            android:layout_below="@+id/textViewInstructionsReactants"
+            android:layout_marginTop="158dp"
+            android:width="90dp" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scrollHorizontally="false"
+            android:layout_weight ="1"
+            android:maxLength ="2000"
+            android:numeric="integer"
+            android:lines="1"
+            android:id="@+id/editTextN6"
+            android:layout_alignStart="@+id/editTextN1"
+            android:layout_alignEnd="@+id/editTextN1"
+            android:textSize="14sp"
+            android:hint="Stoich. coeff."
+            android:layout_below="@+id/textViewInstructionsReactants"
+            android:layout_marginTop="196dp"
+            android:width="90dp" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scrollHorizontally="false"
+            android:layout_weight ="1"
+            android:maxLength ="2000"
+            android:numeric="integer"
+            android:lines="1"
+            android:id="@+id/editTextN7"
+            android:layout_alignStart="@+id/editTextN1"
+            android:layout_alignEnd="@+id/editTextN1"
+            android:textSize="14sp"
+            android:hint="Stoich. coeff."
+            android:layout_below="@+id/textViewInstructionsReactants"
+            android:layout_marginTop="234dp"
+            android:width="90dp" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scrollHorizontally="false"
+            android:layout_weight ="1"
+            android:maxLength ="2000"
+            android:numeric="integer"
+            android:lines="1"
+            android:id="@+id/editTextN8"
+            android:layout_alignStart="@+id/editTextN1"
+            android:layout_alignEnd="@+id/editTextN1"
+            android:textSize="14sp"
+            android:hint="Stoich. coeff."
+            android:layout_below="@+id/textViewInstructionsReactants"
+            android:layout_marginTop="272dp"
+            android:width="90dp" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scrollHorizontally="false"
+            android:layout_weight ="1"
+            android:maxLength ="2000"
+            android:numeric="integer"
+            android:lines="1"
+            android:id="@+id/editTextN9"
+            android:layout_alignStart="@+id/editTextN1"
+            android:layout_alignEnd="@+id/editTextN1"
+            android:textSize="14sp"
+            android:hint="Stoich. coeff."
+            android:layout_below="@+id/textViewInstructionsReactants"
+            android:layout_marginTop="310dp"
+            android:width="90dp" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scrollHorizontally="false"
+            android:layout_weight ="1"
+            android:maxLength ="2000"
+            android:numeric="integer"
+            android:lines="1"
+            android:id="@+id/editTextN10"
+            android:layout_alignStart="@+id/editTextN1"
+            android:layout_alignEnd="@+id/editTextN1"
+            android:textSize="14sp"
+            android:hint="Stoich. coeff."
+            android:layout_below="@+id/textViewInstructionsReactants"
+            android:layout_marginTop="348dp"
+            android:width="90dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView_StartingUnits"
+            android:layout_below="@+id/buttonSubmitChemGames"
+            android:layout_centerHorizontal="true"
+            android:visibility="visible"
+            android:layout_marginTop="20dp"
+            android:textSize="16dp"
+            android:textColor="#000000" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView31"
+            android:layout_below="@+id/textView_StartingUnits"
+            android:layout_centerHorizontal="true"
+            android:visibility="visible"
+            android:layout_marginTop="20dp"
+            android:textSize="16dp"
+            android:textColor="#000000" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:id="@+id/textView32"
+            android:visibility="gone"
+            android:layout_below="@+id/textView31"
+            android:layout_alignStart="@+id/textView31" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:id="@+id/textView33"
+            android:visibility="gone"
+            android:layout_below="@+id/textView32"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:visibility="gone"
+            android:id="@+id/textView34"
+            android:layout_alignTop="@+id/buttonSubmitChemGames"
+            android:layout_alignEnd="@+id/spinnerSolvingForUnitsExtra" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:ems="10"
+            android:id="@+id/editTextInitMoles1"
+            android:hint="Init. Moles 1"
+            android:width="90dp"
+            android:textSize="14sp"
+            android:layout_alignBottom="@+id/editTextN1"
+            android:layout_alignEnd="@+id/textViewChemEqTitle"
+            android:layout_toEndOf="@+id/editTextN1" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:ems="10"
+            android:id="@+id/editTextInitMoles2"
+            android:layout_alignBottom="@+id/editTextN2"
+            android:hint="Moles of 2"
+            android:width="90dp"
+            android:textSize="14sp"
+            android:layout_alignEnd="@+id/editTextInitMoles1"
+            android:layout_toEndOf="@+id/editTextN2" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:ems="10"
+            android:id="@+id/editTextInitMoles3"
+            android:layout_alignBottom="@+id/editTextN3"
+            android:hint="Moles of 3"
+            android:width="90dp"
+            android:textSize="14sp"
+            android:layout_alignEnd="@+id/editTextInitMoles2"
+            android:layout_toEndOf="@+id/editTextN3" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:ems="10"
+            android:id="@+id/editTextInitMoles4"
+            android:layout_alignBottom="@+id/editTextN4"
+            android:hint="Moles of 4"
+            android:width="90dp"
+            android:textSize="14sp"
+            android:layout_alignEnd="@+id/editTextInitMoles3"
+            android:layout_toEndOf="@+id/editTextN4" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:ems="10"
+            android:id="@+id/editTextInitMoles5"
+            android:layout_alignBottom="@+id/editTextN5"
+            android:hint="Moles of 5"
+            android:width="90dp"
+            android:textSize="14sp"
+            android:layout_alignEnd="@+id/editTextInitMoles4"
+            android:layout_toEndOf="@+id/editTextN4" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:ems="10"
+            android:id="@+id/editTextInitMoles6"
+            android:layout_alignBottom="@+id/editTextN6"
+            android:hint="Moles of 6"
+            android:width="90dp"
+            android:textSize="14sp"
+            android:layout_alignEnd="@+id/editTextInitMoles5"
+            android:layout_toEndOf="@+id/editTextN6" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:ems="10"
+            android:id="@+id/editTextInitMoles7"
+            android:layout_alignBottom="@+id/editTextN7"
+            android:hint="Moles of 7"
+            android:width="90dp"
+            android:textSize="14sp"
+            android:layout_alignEnd="@+id/editTextInitMoles6"
+            android:layout_toEndOf="@+id/editTextN7" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:ems="10"
+            android:id="@+id/editTextInitMoles8"
+            android:layout_alignBottom="@+id/editTextN8"
+            android:hint="Moles of 8"
+            android:width="90dp"
+            android:textSize="14sp"
+            android:layout_alignEnd="@+id/editTextInitMoles7"
+            android:layout_toEndOf="@+id/editTextN8" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:ems="10"
+            android:id="@+id/editTextInitMoles9"
+            android:layout_alignBottom="@+id/editTextN9"
+            android:hint="Moles of 9"
+            android:width="90dp"
+            android:textSize="14sp"
+            android:layout_alignEnd="@+id/editTextInitMoles8"
+            android:layout_toEndOf="@+id/editTextN9" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:ems="10"
+            android:id="@+id/editTextInitMoles10"
+            android:layout_alignBottom="@+id/editTextN10"
+            android:hint="Moles of 10"
+            android:width="90dp"
+            android:textSize="14sp"
+            android:layout_alignEnd="@+id/editTextInitMoles9"
+            android:layout_toEndOf="@+id/editTextN10" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Large Text"
+            android:id="@+id/textView35"
+            android:layout_below="@+id/textViewInstructionsReactants"
+            android:layout_alignEnd="@+id/ViewTitleUnderline"
+            android:textSize="9sp"
+            android:visibility="invisible" />
+
+    </RelativeLayout>
+</ScrollView>

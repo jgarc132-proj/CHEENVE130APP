@@ -27,6 +27,15 @@ public class Activity_PhaseGamesSelection extends AppCompatActivity {
             }
         });
 
+        Button gamesButton = findViewById(R.id.MRLButton);
+        gamesButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), QuizIntroduction.class);
+                startActivity(intent);
+            }
+        });
+
     }
 }
 

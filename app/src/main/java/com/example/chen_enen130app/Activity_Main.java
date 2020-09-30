@@ -10,14 +10,34 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class Activity_Main extends AppCompatActivity {
 
-    Button PhaseEquilButton, ThermoGamesButton;
+    Button CourseOutlineButton, PhaseEquilButton, ChemEquilButton;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        initializeViews();
+
+        buttonOnClickListener();
+    }
+
+    private void initializeViews() {
+        CourseOutlineButton = findViewById(R.id.CourseOutlineButton);
         PhaseEquilButton = findViewById(R.id.PhaseEquilButton);
+        ChemEquilButton = findViewById(R.id.ChemEquilButton);
+    }
+
+    private void buttonOnClickListener() {
+
+        CourseOutlineButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent =  new Intent(getApplicationContext(), Activity_CourseOutline.class);
+                startActivity(intent);
+            }
+        });
+
         PhaseEquilButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
@@ -26,11 +46,11 @@ public class Activity_Main extends AppCompatActivity {
             }
         });
 
-        ThermoGamesButton = findViewById(R.id.ThermoGamesButton);
-        ThermoGamesButton.setOnClickListener(new View.OnClickListener() {
+
+        ChemEquilButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), Activity_LessonSelect.class);
+                Intent intent = new Intent(getApplicationContext(), ChemGames.class);
                 startActivity(intent);
             }
         });

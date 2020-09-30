@@ -12,17 +12,18 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
+public class RVA_CourseOutline extends RecyclerView.Adapter<RVA_CourseOutline.MyViewHolder> {
 
-    String data1[], data2[];
-    int images[];
+    String title[], description[];
+    int flavorImages[], courseMaterial[];
     Context context;
 
-    public MyAdapter(Context ct, String s1[], String s2[], int img[]) {
-        context = ct;
-        data1 = s1;
-        data2 = s2;
-        images = img;
+    public RVA_CourseOutline(Context context, String title[], String description[], int flavorImages[], int courseMaterial[]) {
+        this.context = context;
+        this.title = title;
+        this.description = description;
+        this.flavorImages = flavorImages;
+        this.courseMaterial = courseMaterial;
     }
 
     @NonNull
@@ -35,17 +36,15 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
-        holder.myText1.setText(data1[position]);
-        holder.myText2.setText(data2[position]);
-        holder.myImage.setImageResource(images[position]);
+        holder.myText1.setText(title[position]);
+        holder.myText2.setText(description[position]);
+        holder.myImage.setImageResource(flavorImages[position]);
 
         holder.mainLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, SecondActivity.class);
-                intent.putExtra("data1", data1[position]);
-                intent.putExtra("data2", data2[position]);
-                intent.putExtra("myImage", images[position]);
+                Intent intent = new Intent(context, Activity_CourseMaterial.class);
+                intent.putExtra("courseMaterial", courseMaterial[position]);
                 context.startActivity(intent);
             }
         });
@@ -53,7 +52,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     @Override
     public int getItemCount() {
-        return data1.length;
+        return title.length;
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder{

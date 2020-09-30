@@ -76,19 +76,29 @@
     <string name="title_notifications">Notifications</string>
 
 
-    <string-array name="programming_languages">
-        <item>Chapter 10</item>
-        <item>Chapter 11</item>
-        <item>Chapter 12</item>
-        <item>Chapter 13</item>
-        <item>Chapter 14</item>
+    <string-array name="Weekly_Outlines">
+        <item>Week 1</item>
+        <item>Week 2</item>
+        <item>Week 3</item>
+        <item>Week 4</item>
+        <item>Week 5</item>
+        <item>Week 6</item>
+        <item>Week 7</item>
+        <item>Week 8</item>
+        <item>Week 9</item>
+        <item>Week 10</item>
     </string-array>
 
-    <string-array name="description">
-        <item>This is a filler</item>
-        <item>This is a filler</item>
-        <item>This is a filler</item>
-        <item>This is a filler</item>
-        <item>This is a filler</item>
+    <string-array name="Description">
+        <item>Phase Rule, Ideal Vapor-Liquid Equilibrium, Ideal Solution</item>
+        <item>VLE for Non-Ideal Liquid Mixtures and VLE Phase Diagrams</item>
+        <item>Fugacity of Vapors and Liquids</item>
+        <item>Properties of liquid Mixtures and Solutions</item>
+        <item>Examples of VLE and Properties of mixing</item>
+        <item>Excess Gibbs Energy: Empirical Correlations and Molecular Models</item>
+        <item>Solid-Liquid, Solid-Vapor and Osmotic Equilibria</item>
+        <item>Osmotic Equilibrium and Partial Miscibility</item>
+        <item>Basics of Chemical Equilibrium</item>
+        <item>Equilibrium constant and Heterogeneous Reactions</item>
     </string-array>
 </resources>

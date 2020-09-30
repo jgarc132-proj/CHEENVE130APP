@@ -20,6 +20,8 @@
                 android:id="@+id/myImageView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/ic_launcher_background" />
 
             <TextView
@@ -38,12 +40,14 @@
 
             <TextView
                 android:id="@+id/myText2"
-                android:layout_width="wrap_content"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
-                android:text="Description"
                 android:fontFamily="sans-serif-thin"
-                android:textStyle="bold"
+                android:text="Description"
                 android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/myText1"
                 app:layout_constraintTop_toBottomOf="@+id/myText1" />
         </androidx.constraintlayout.widget.ConstraintLayout>

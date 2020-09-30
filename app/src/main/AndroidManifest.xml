@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-
+        <activity android:name=".Activity_ModifiedRaoultsLaw"></activity>
+        <activity android:name=".ChemGames" />
+        <activity android:name=".QuizIntroduction" />
         <activity
             android:name=".Activity_Main"
             android:screenOrientation="portrait">
@@ -19,10 +21,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activity_PhaseGamesSelection"/>
-        <activity android:name=".Activity_LessonSelect"/>
-        <activity android:name=".Activity_RaoultsLawCalculator"/>
-        <activity android:name=".SecondActivity"/>
+        <activity android:name=".Activity_PhaseGamesSelection" />
+        <activity android:name=".Activity_CourseOutline" />
+        <activity android:name=".Activity_RaoultsLawCalculator" />
+        <activity android:name=".Activity_CourseMaterial" />
+        <activity android:name=".Quiz" />
     </application>
 
 </manifest>

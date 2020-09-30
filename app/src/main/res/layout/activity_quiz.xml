@@ -25,7 +25,7 @@
                 android:layout_height="0dp"
                 android:layout_marginTop="36dp"
                 android:gravity="center"
-                android:text="1/x"
+                android:text="Question: 1/x"
                 app:layout_constraintStart_toStartOf="@+id/Exercise_QuestionImage"
                 app:layout_constraintTop_toTopOf="parent" />
 
