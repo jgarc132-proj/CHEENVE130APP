@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class Activity_Main extends AppCompatActivity {
 
-    Button CourseOutlineButton, PhaseEquilButton, ChemEquilButton;
+    Button CourseOutlineButton, PhaseEquilButton, ChemEquilButton, GraphGenButton;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -26,6 +26,7 @@ public class Activity_Main extends AppCompatActivity {
         CourseOutlineButton = findViewById(R.id.CourseOutlineButton);
         PhaseEquilButton = findViewById(R.id.PhaseEquilButton);
         ChemEquilButton = findViewById(R.id.ChemEquilButton);
+        GraphGenButton = findViewById(R.id.GraphGenButton);
     }
 
     private void buttonOnClickListener() {
@@ -50,7 +51,15 @@ public class Activity_Main extends AppCompatActivity {
         ChemEquilButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), ChemGames.class);
+                Intent intent = new Intent(getApplicationContext(), Activity_ChemGames.class);
+                startActivity(intent);
+            }
+        });
+
+        GraphGenButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), QuizIntroduction.class);
                 startActivity(intent);
             }
         });
