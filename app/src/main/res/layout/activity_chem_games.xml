@@ -23,7 +23,7 @@
                 android:fontFamily="sans-serif-thin"
                 android:text="Chemical Equilibrium Calculator"
                 android:textColor="@color/Green700"
-                android:textSize="28dp"
+                android:textSize="26dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -73,7 +73,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingHorizontal="30dp"
-                android:text="Please supply the appropriate reactant and product (chemical) species, molar amounts and stoichiometric coefficients."
+                android:text="Please supply the appropriate reactant and product (chemical) species and stoichiometric coefficients."
                 android:layout_marginTop="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -103,7 +103,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
-                android:text="1. Temperature:   "
+                android:text="Temperature:   "
                 app:layout_constraintEnd_toStartOf="@+id/TemperatureEditText"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintHorizontal_chainStyle="packed"
@@ -114,6 +114,7 @@
                 android:id="@+id/TemperatureEditText"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
                 app:layout_constraintBottom_toBottomOf="@id/TemperatureText"
                 app:layout_constraintEnd_toStartOf="@+id/TemperatureSpinner"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -132,68 +133,22 @@
                 app:layout_constraintStart_toEndOf="@+id/TemperatureEditText"
                 app:layout_constraintTop_toTopOf="@id/TemperatureText" />
 
-            <TextView
-                android:id="@+id/PressureText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="2. Pressure:          "
-                app:layout_constraintEnd_toStartOf="@+id/PressureEditText"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintHorizontal_chainStyle="packed"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/TemperatureSpinner" />
-
-            <EditText
-                android:id="@+id/PressureEditText"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="@id/PressureText"
-                app:layout_constraintEnd_toStartOf="@+id/PressureSpinner"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintHorizontal_chainStyle="packed"
-                app:layout_constraintStart_toEndOf="@+id/PressureText"
-                app:layout_constraintTop_toTopOf="@id/PressureText" />
-
-            <Spinner
-                android:id="@+id/PressureSpinner"
-                android:layout_width="95dp"
-                android:layout_height="45dp"
-                app:layout_constraintBottom_toBottomOf="@id/PressureText"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintHorizontal_chainStyle="packed"
-                app:layout_constraintStart_toEndOf="@+id/PressureEditText"
-                app:layout_constraintTop_toTopOf="@id/PressureText" />
-
-            <View
-                android:id="@+id/CEC_CBHighlight"
-                android:layout_width="1dp"
-                android:layout_height="0dp"
-                android:background="@color/Green700"
-                app:layout_constraintHorizontal_chainStyle="packed"
-                app:layout_constraintBottom_toBottomOf="@id/CEC_CalculateButton"
-                app:layout_constraintEnd_toStartOf="@+id/CEC_CalculateButton"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/CEC_CalculateButton" />
-
             <Button
                 android:id="@+id/CEC_CalculateButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
                 android:layout_marginBottom="40dp"
-                android:paddingHorizontal="20dp"
-                android:textColor="@color/Green700"
-                app:layout_constraintHorizontal_chainStyle="packed"
                 android:background="?android:attr/selectableItemBackground"
+                android:paddingHorizontal="20dp"
                 android:text="Calculate..."
+                android:textColor="@color/Green700"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/CEC_CBHighlight"
-                app:layout_constraintTop_toBottomOf="@id/PressureSpinner"
-                app:layout_constraintBottom_toBottomOf="parent"/>
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/TemperatureEditText" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
