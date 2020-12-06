@@ -2,7 +2,6 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="20dp">
@@ -20,7 +19,6 @@
                 android:id="@+id/ResultTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginVertical="20dp"
                 android:fontFamily="sans-serif-thin"
                 android:text="Result"
                 android:textColor="@color/Green700"
@@ -35,84 +33,107 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
+                android:fontFamily="sans-serif-thin"
                 android:text="Gibbs Energy of Reaction (ΔG): "
                 android:textColor="@color/LightBlue700"
-                android:textSize="18dp"
-                android:fontFamily="sans-serif-thin"
+                android:textSize="18sp"
                 android:textStyle="bold"
-                app:layout_constraintTop_toBottomOf="@id/ResultTitle"
-                app:layout_constraintStart_toStartOf="parent"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ResultTitle" />
 
             <TextView
                 android:id="@+id/GibbsEnergyResult_Value"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/GibbsEnergyResult_Title"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:text="ΔG"
-                android:textSize="18dp"
                 android:fontFamily="sans-serif-thin"
-                android:textStyle="bold" />
+                android:text="ΔG"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/GibbsEnergyResult_Title" />
 
             <TextView
                 android:id="@+id/EquilibriumConst_Title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+                android:fontFamily="sans-serif-thin"
                 android:text="Equilibrium Constant (K): "
                 android:textColor="@color/DeepOrange700"
-                android:textSize="18dp"
-                android:fontFamily="sans-serif-thin"
+                android:textSize="18sp"
                 android:textStyle="bold"
-                app:layout_constraintTop_toBottomOf="@id/GibbsEnergyResult_Value"
-                app:layout_constraintStart_toStartOf="parent"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/GibbsEnergyResult_Value" />
 
             <TextView
                 android:id="@+id/EquilibriumConst_Value"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/EquilibriumConst_Title"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:text="K"
-                android:textSize="18dp"
                 android:fontFamily="sans-serif-thin"
-                android:textStyle="bold" />
+                android:text="K"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/EquilibriumConst_Title" />
+
+            <TextView
+                android:id="@+id/Temperature_Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="sans-serif-thin"
+                android:text="Temperature:"
+                android:textColor="@color/Green700"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/EquilibriumConst_Value" />
+
+            <TextView
+                android:id="@+id/Temperature_Value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-thin"
+                android:text="T"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Temperature_Title" />
 
             <TextView
                 android:id="@+id/SpeciesTable_Title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="Chemical Properties of Reaction: "
-                android:textColor="@color/Green700"
-                android:textSize="18dp"
+                android:layout_marginTop="10dp"
                 android:fontFamily="sans-serif-thin"
+                android:text="Chemical Properties of Reaction: "
+                android:textColor="@color/LightBlue700"
+                android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/EquilibriumConst_Value" />
+                app:layout_constraintTop_toBottomOf="@+id/Temperature_Value" />
 
 
             <TableLayout
                 android:id="@+id/Species_TableLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/SpeciesTable_Title"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="10dp"
                 android:stretchColumns="0,1,2"
-                android:layout_marginTop="10dp"/>
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/SpeciesTable_Title" />
 
             <Button
                 android:id="@+id/dismissDialogue_Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginVertical="10dp"
                 android:background="?android:attr/selectableItemBackground"
                 android:fontFamily="sans-serif-thin"
                 android:text="OK"
-                android:textSize="18dp"
                 android:textColor="@color/Green700"
+                android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

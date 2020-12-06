@@ -19,18 +19,18 @@
             android:padding="20dp">
 
             <ImageView
-                android:id="@+id/image_view"
+                android:id="@+id/LessonImage"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:src="@mipmap/ic_launcher_round"/>
 
             <TextView
-                android:id="@+id/photo_name_tv"
+                android:id="@+id/LessonName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="Photo Name"
-                android:textSize="16dp"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 android:textColor="@android:color/black"/>
 

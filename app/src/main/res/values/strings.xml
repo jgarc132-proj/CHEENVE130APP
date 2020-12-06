@@ -2,7 +2,7 @@
     <string name="app_name">CHEN_ENEN130 APP</string>
 
     <string-array name="ChemicalSpecies">
-        <item>Select...</item>
+        <item>Select…</item>
         <item>Acetone</item>
         <item>Acetic acid</item>
         <item>Acetonitrile</item>
@@ -48,8 +48,8 @@
     </string-array>
 
     <string-array name="temperatureUnits">
-        <item>°C</item>
         <item>K</item>
+        <item>°C</item>
         <item>°F</item>
     </string-array>
 
@@ -62,7 +62,7 @@
     </string-array>
 
     <string-array name="RLCInfo">
-        <item>Select...</item>
+        <item>Select…</item>
         <item>x<sub><small><small>1</small></small></sub></item>
         <item>x<sub><small><small>2</small></small></sub></item>
         <item>y<sub><small><small>1</small></small></sub></item>

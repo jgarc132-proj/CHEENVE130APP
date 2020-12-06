@@ -1,4 +1,4 @@
-package com.example.chen_enen130app;
+package com.example.chen_enen130app.RecyclerViewAdapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,6 +11,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.chen_enen130app.Activity_CourseMaterial;
+import com.example.chen_enen130app.R;
 
 public class RVA_CourseOutline extends RecyclerView.Adapter<RVA_CourseOutline.MyViewHolder> {
 

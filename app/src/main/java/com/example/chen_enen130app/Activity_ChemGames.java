@@ -4,18 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.Context;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.Editable;
-import android.text.Layout;
+import android.text.Html;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -31,8 +26,8 @@ import android.widget.Toast;
 
 import com.example.chen_enen130app.DataFiles.ChemEquilParameters;
 import com.example.chen_enen130app.DatabaseAccessibility.DatabaseAccess;
+import com.example.chen_enen130app.RecyclerViewAdapter.RVA_ChemGames;
 
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,11 +41,16 @@ public class Activity_ChemGames extends AppCompatActivity {
     List<Integer> speciesAmountList = new ArrayList<>();
     ArrayAdapter<Integer> speciesAmountListAA;
 
+    ArrayList<String> temperatureUnits = new ArrayList<>();
+    Spinner temperatureUnitsSpinner;
+    ArrayAdapter<String> temperatureUnitsAA;
+
     RVA_ChemGames rva_chemGames;
 
     DatabaseAccess dbAccess;
 
-    ArrayList<String> chemicalSpecies = new ArrayList<>();
+    ArrayList<String> chemicalSpecies = new ArrayList<>(),
+            HTML_Species = new ArrayList<>();
     ArrayList<Double> gibbs298K = new ArrayList<>(),
             enth298K = new ArrayList<>(),
             A = new ArrayList<>(),
@@ -60,12 +60,15 @@ public class Activity_ChemGames extends AppCompatActivity {
     final String TABLE_NAME = "Properties_Of_Gases";
 
     ChemEquilParameters[] cEPArray;
-    Double temperature;
 
-    double gibbsReaction = 0, equilK = 0;
+    Double temperature;
+    Double temperatureK;
+    String temperatureUnit;
+
+    double gibbsEnergyRxn = 0, equilK = 0;
 
     Dialog calculationResult;
-    TextView displayGibbsE, displayEquilC;
+    TextView displayGibbsE, displayEquilC, displayTemperature;
     Button dismissCR;
     TableLayout speciesTable;
 
@@ -85,7 +88,6 @@ public class Activity_ChemGames extends AppCompatActivity {
 
         editTextSetUp();
 
-
         beforeCalculate();
     }
 
@@ -97,6 +99,7 @@ public class Activity_ChemGames extends AppCompatActivity {
 
     private void fillArrayListData() {
         chemicalSpecies.add("Select...");
+        HTML_Species.add(null);
         gibbs298K.add(null);
         enth298K.add(null);
         A.add(null);
@@ -105,6 +108,7 @@ public class Activity_ChemGames extends AppCompatActivity {
         D.add(null);
 
         dbAccess.PopulateArrayString(TABLE_NAME, "Chemical_Species", chemicalSpecies);
+        dbAccess.PopulateArrayString(TABLE_NAME, "HTML_Chemical_Formula", HTML_Species);
         dbAccess.PopulateArrayDouble(TABLE_NAME, "G_298", gibbs298K);
         dbAccess.PopulateArrayDouble(TABLE_NAME, "H_298", enth298K);
         dbAccess.PopulateArrayDouble(TABLE_NAME, "A", A);
@@ -118,6 +122,8 @@ public class Activity_ChemGames extends AppCompatActivity {
         speciesAmountSpinner = findViewById(R.id.CEC_ChemSpecSpinner);
         temperatureTV = findViewById(R.id.TemperatureEditText);
         calculateCE = findViewById(R.id.CEC_CalculateButton);
+
+        temperatureUnitsSpinner = findViewById(R.id.TemperatureSpinner);
 
         calculationResult = new Dialog(this);
     }
@@ -143,6 +149,31 @@ public class Activity_ChemGames extends AppCompatActivity {
             }
         });
         speciesAmountSpinner.setSelection(0);
+
+
+        // For temperature units spinner
+        for(String temp: getResources().getStringArray(R.array.temperatureUnits)) {
+            temperatureUnits.add(temp);
+        }
+
+        temperatureUnitsAA = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, temperatureUnits);
+        temperatureUnitsAA.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        temperatureUnitsSpinner.setAdapter(temperatureUnitsAA);
+
+        temperatureUnitsSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                temperatureUnit = temperatureUnits.get(position);
+                Log.e(null, "Temperature unit: " + temperatureUnit);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+        temperatureUnitsSpinner.setSelection(0);
+        temperatureUnit = "K";
     }
 
     private void editTextSetUp() {
@@ -157,12 +188,20 @@ public class Activity_ChemGames extends AppCompatActivity {
                 if(temperatureTV.getText().toString().length() != 0) {
                     try {
                         temperature = Double.parseDouble((temperatureTV.getText().toString()));
-                    } catch(NumberFormatException e) {
+                        Log.e(null, "Temperature = " + temperature + temperatureUnit);
+                    }
+                    catch(NumberFormatException e) {
                         temperature = null;
+                        if(temperature == null) {
+                            Log.e(null, "Temperature is null");
+                        }
                     }
                 }
                 else {
                     temperature = null;
+                    if(temperature == null) {
+                        Log.e(null, "Temperature is null");
+                    }
                 }
             }
 
@@ -189,21 +228,26 @@ public class Activity_ChemGames extends AppCompatActivity {
             public void onClick(View v) {
                 cEPArray = rva_chemGames.returnCEPArray();
 
-                if(areParametersValid()) {
+                boolean areParametersValid = areParametersValid();
+                boolean isTempeartureValid = isTemperatureValid();
+
+                if(areParametersValid && isTempeartureValid) {
                     calculate();
                 }
+                else if(!areParametersValid && isTempeartureValid){
+                    Toast.makeText(getApplicationContext(), "You are either missing some parameters for the calculation.", Toast.LENGTH_SHORT).show();
+                }
+                else if(!isTempeartureValid && areParametersValid) {
+                    Toast.makeText(getApplicationContext(), "Temperature is either below absolute zero or not given.", Toast.LENGTH_SHORT).show();
+                }
                 else {
-                    Toast.makeText(getApplicationContext(), "You are missing some parameters for the calculation.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "You are either missing some parameters for the calculation.", Toast.LENGTH_SHORT).show();
                 }
             }
         });
     }
 
     private boolean areParametersValid() {
-        if(temperature == null) {
-            return false;
-        }
-
         for(int i = 0; i < cEPArray.length; ++i) {
             if(cEPArray[i].getPosition() == null ||
                     cEPArray[i].getStoichCoeff() == null) {
@@ -214,48 +258,61 @@ public class Activity_ChemGames extends AppCompatActivity {
         return true;
     }
 
-    private void calculate() {
-        int arraySize = cEPArray.length;
-        double totalA = 0, totalB = 0, totalC = 0, totalD = 0, totalEnthalpy = 0, totalGibbs = 0;
-        double enthalpyInt = 0, gibbsInt = 0;
-        double GRT = 0;
-
-        for(int i = 0; i < arraySize; ++i) {
-            double coeff = cEPArray[i].getStoichCoeff();
-
-            totalA += coeff * A.get(cEPArray[i].getPosition());
-            totalB += coeff * B.get(cEPArray[i].getPosition());
-            totalC += coeff * C.get(cEPArray[i].getPosition());
-            totalD += coeff * D.get(cEPArray[i].getPosition());
-            totalEnthalpy += coeff * enth298K.get(cEPArray[i].getPosition());
-            totalGibbs += coeff * gibbs298K.get(cEPArray[i].getPosition());
+    private boolean isTemperatureValid() {
+        if(temperature == null) {
+            return false;
         }
 
-        totalB = totalB / Math.pow(10,3);
-        totalC = totalB / Math.pow(10,6);
-        totalD = totalB / Math.pow(10,-5);
+        if(temperatureUnit.equals("K")) {
+            if(temperature < 0) {
+                return false;
+            }
+        }
+        else if(temperatureUnit.equals("°C")) {
+            if(temperature + 273.15 < 0.00000001) {
+                return false;
+            }
+        }
+        else if(temperatureUnit.equals("°F")) {
+            if(temperature + 459.67 < 0.00000001) {
+                return false;
+            }
+        }
+        return true;
+    }
 
-        enthalpyInt = totalA * (temperature - 298.15);
-        enthalpyInt += totalB/2 * (Math.pow(temperature, 2) - Math.pow(298.15, 2));
-        enthalpyInt += totalC/3 * (Math.pow(temperature, 3) - Math.pow(298.15, 3));
-        enthalpyInt += totalD * (temperature - 298.15)/(temperature * 298.15);
+    private void calculate() {
+        switch (temperatureUnit) {
+            case "K":
+                temperatureK = temperature;
+                Log.e(null, "Is kelvin.");
+                break;
+            case "°C":
+                temperatureK = temperature + 273.15;
+                break;
+            case "°F":
+                temperatureK = (temperature + 459.67) * 5.0 / 9.0;
+                break;
+        }
 
-        Log.e(null, "Enthalpy integration: " + enthalpyInt);
+        fillData();
 
-        gibbsInt = totalA * Math.log(temperature/298.15);
-        gibbsInt += (totalB + (totalC + totalD/(Math.pow(298.15, 2) * Math.pow(temperature, 2))) * ((temperature + 298.15)/2)) * (temperature - 298.15);
-
-        GRT = (totalGibbs - totalEnthalpy)/(8.314 * 298.15) + (totalEnthalpy)/(8.314 * temperature);
-        GRT += 1/(temperature) * enthalpyInt - gibbsInt;
-
-        gibbsReaction = GRT * 8.314 * temperature;
-        equilK = Math.exp(-GRT);
-
-        Log.e(null, "Gibbs energy of reaction: " + gibbsReaction + ", Equilibrium constant: " + equilK);
-
-        Toast.makeText(getApplicationContext(), "" + equilK, Toast.LENGTH_LONG);
+        gibbsEnergyRxn = ChemEquilParameters.gibbsEnergyofReaction(cEPArray, temperatureK);
+        equilK = ChemEquilParameters.equilibriumConstant(gibbsEnergyRxn, temperatureK);
 
         showCalculationResult();
+    }
+
+    private void fillData() {
+        for(int i = 0; i < cEPArray.length; ++i) {
+            cEPArray[i].setA(A.get(cEPArray[i].getPosition()));
+            cEPArray[i].setB(B.get(cEPArray[i].getPosition()));
+            cEPArray[i].setC(C.get(cEPArray[i].getPosition()));
+            cEPArray[i].setD(D.get(cEPArray[i].getPosition()));
+
+            cEPArray[i].setGibbs298K(gibbs298K.get(cEPArray[i].getPosition()));
+            cEPArray[i].setEnth298K(enth298K.get(cEPArray[i].getPosition()));
+        }
     }
 
     private void showCalculationResult() {
@@ -267,14 +324,16 @@ public class Activity_ChemGames extends AppCompatActivity {
         dismissCR = calculationResult.findViewById(R.id.dismissDialogue_Button);
         displayGibbsE = calculationResult.findViewById(R.id.GibbsEnergyResult_Value);
         displayEquilC = calculationResult.findViewById(R.id.EquilibriumConst_Value);
+        displayTemperature = calculationResult.findViewById(R.id.Temperature_Value);
 
         // Table used to populate programatically from cEPArray
         speciesTable = calculationResult.findViewById(R.id.Species_TableLayout);
 
         populateTable();
 
-        displayGibbsE.setText(String.format("%.3f", gibbsReaction / 1000) + " kJ/mol");
+        displayGibbsE.setText(String.format("%.3f", gibbsEnergyRxn / 1000) + " kJ/mol");
         displayEquilC.setText(String.format("%.5e", equilK));
+        displayTemperature.setText(temperature + temperatureUnit);
 
         dismissCR.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -305,7 +364,7 @@ public class Activity_ChemGames extends AppCompatActivity {
             }
             else {
                 speciesNumber_TextView.setText(Integer.toString(i));
-                speciesName_TextView.setText(chemicalSpecies.get(cEPArray[i - 1].getPosition()));
+                speciesName_TextView.setText(Html.fromHtml(HTML_Species.get(cEPArray[i - 1].getPosition())));
                 stoichCoeff_TextView.setText(cEPArray[i - 1].getStoichCoeff().toString());
             }
 

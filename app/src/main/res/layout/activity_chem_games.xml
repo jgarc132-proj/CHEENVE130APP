@@ -13,7 +13,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <TextView
                 android:id="@+id/CEC_Title"
@@ -23,7 +23,7 @@
                 android:fontFamily="sans-serif-thin"
                 android:text="Chemical Equilibrium Calculator"
                 android:textColor="@color/Green700"
-                android:textSize="26dp"
+                android:textSize="26sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -43,6 +43,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
                 android:text="How many chemical species are in your reaction?"
+                android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/CEC_TitleUnderline" />
@@ -53,6 +54,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:text="1.  Number of chemical species:     "
+                android:textSize="16sp"
                 app:layout_constraintEnd_toStartOf="@+id/CEC_ChemSpecSpinner"
                 app:layout_constraintHorizontal_chainStyle="packed"
                 app:layout_constraintStart_toStartOf="parent"
@@ -60,6 +62,7 @@
 
             <Spinner
                 android:id="@+id/CEC_ChemSpecSpinner"
+                android:spinnerMode="dialog"
                 android:layout_width="95dp"
                 android:layout_height="45dp"
                 app:layout_constraintBottom_toBottomOf="@+id/ReactantsText"
@@ -72,8 +75,9 @@
                 android:id="@+id/CEC_Prompt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingHorizontal="30dp"
+                android:paddingHorizontal="25dp"
                 android:text="Please supply the appropriate reactant and product (chemical) species and stoichiometric coefficients."
+                android:textSize="16sp"
                 android:layout_marginTop="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -93,6 +97,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="What are your system variables?"
+                android:textSize="16sp"
                 android:layout_marginTop="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -104,6 +109,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
                 android:text="Temperature:   "
+                android:textSize="16sp"
                 app:layout_constraintEnd_toStartOf="@+id/TemperatureEditText"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintHorizontal_chainStyle="packed"
@@ -114,7 +120,7 @@
                 android:id="@+id/TemperatureEditText"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:inputType="numberDecimal"
+                android:inputType="numberDecimal|numberSigned"
                 app:layout_constraintBottom_toBottomOf="@id/TemperatureText"
                 app:layout_constraintEnd_toStartOf="@+id/TemperatureSpinner"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -124,6 +130,7 @@
 
             <Spinner
                 android:id="@+id/TemperatureSpinner"
+                android:spinnerMode="dialog"
                 android:layout_width="95dp"
                 android:layout_height="45dp"
                 app:layout_constraintBottom_toBottomOf="@id/TemperatureText"
@@ -142,6 +149,7 @@
                 android:background="?android:attr/selectableItemBackground"
                 android:paddingHorizontal="20dp"
                 android:text="Calculate..."
+                android:textSize="16sp"
                 android:textColor="@color/Green700"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

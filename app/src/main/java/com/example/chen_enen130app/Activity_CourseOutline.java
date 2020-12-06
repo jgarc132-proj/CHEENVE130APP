@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.chen_enen130app.RecyclerViewAdapter.RVA_CourseOutline;
+
 public class Activity_CourseOutline extends AppCompatActivity {
 
     RecyclerView recyclerView;

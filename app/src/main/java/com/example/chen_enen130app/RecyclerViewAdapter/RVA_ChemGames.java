@@ -1,4 +1,4 @@
-package com.example.chen_enen130app;
+package com.example.chen_enen130app.RecyclerViewAdapter;
 
 import java.lang.String;
 import java.util.ArrayList;
@@ -19,6 +19,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.chen_enen130app.DataFiles.ChemEquilParameters;
+import com.example.chen_enen130app.R;
 
 public class RVA_ChemGames extends RecyclerView.Adapter<RVA_ChemGames.CustomViewHolder> {
 
@@ -88,7 +89,8 @@ public class RVA_ChemGames extends RecyclerView.Adapter<RVA_ChemGames.CustomView
                     try {
                         cEPArray[position].setStoichCoeff(Double.parseDouble(holder.stoichCoeff.getText().toString()));
                         Log.e(null, "" + cEPArray[position].getStoichCoeff());
-                    } catch(NumberFormatException e) {
+                    }
+                    catch(NumberFormatException e) {
                         cEPArray[position].setStoichCoeff(null);
                         if(cEPArray[position].getStoichCoeff() == null) {
                             Log.e(null, "Null value");
