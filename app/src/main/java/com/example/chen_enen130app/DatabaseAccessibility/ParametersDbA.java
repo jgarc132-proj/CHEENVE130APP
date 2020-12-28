@@ -7,24 +7,24 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import java.util.ArrayList;
 
-public class DatabaseAccess {
+public class ParametersDbA {
     private SQLiteOpenHelper openHelper;
     private SQLiteDatabase db;
-    private static DatabaseAccess instance;
+    private static ParametersDbA instance;
     Cursor c;
 
     //private constructor so that object creation from outside the class is avoided
-    private DatabaseAccess(Context context)
+    private ParametersDbA(Context context)
     {
-        this.openHelper = new DatabaseOpenerHelper(context);
+        this.openHelper = new ParametersDbOHelper(context);
     }
 
     //to return the single instance of database;
-    public static DatabaseAccess getInstance(Context context)
+    public static ParametersDbA getInstance(Context context)
     {
         if(instance == null)
         {
-            instance = new DatabaseAccess(context);
+            instance = new ParametersDbA(context);
         }
         return instance;
     }

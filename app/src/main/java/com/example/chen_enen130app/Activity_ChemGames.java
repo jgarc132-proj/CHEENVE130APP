@@ -25,7 +25,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.chen_enen130app.DataFiles.ChemEquilParameters;
-import com.example.chen_enen130app.DatabaseAccessibility.DatabaseAccess;
+import com.example.chen_enen130app.DatabaseAccessibility.ParametersDbA;
 import com.example.chen_enen130app.RecyclerViewAdapter.RVA_ChemGames;
 
 import java.util.ArrayList;
@@ -47,7 +47,7 @@ public class Activity_ChemGames extends AppCompatActivity {
 
     RVA_ChemGames rva_chemGames;
 
-    DatabaseAccess dbAccess;
+    ParametersDbA dbAccess;
 
     ArrayList<String> chemicalSpecies = new ArrayList<>(),
             HTML_Species = new ArrayList<>();
@@ -77,7 +77,7 @@ public class Activity_ChemGames extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chem_games);
 
-        dbAccess = DatabaseAccess.getInstance(getApplicationContext());
+        dbAccess = ParametersDbA.getInstance(getApplicationContext());
         dbAccess.open();
         fillArrayListData();
         dbAccess.close();

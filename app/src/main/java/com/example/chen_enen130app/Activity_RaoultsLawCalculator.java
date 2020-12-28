@@ -12,7 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-import com.example.chen_enen130app.DatabaseAccessibility.DatabaseAccess;
+import com.example.chen_enen130app.DatabaseAccessibility.ParametersDbA;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -37,7 +37,7 @@ public class Activity_RaoultsLawCalculator extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_raoults_law_calculator);
 
-        DatabaseAccess dbAccess = DatabaseAccess.getInstance(getApplicationContext());
+        ParametersDbA dbAccess = ParametersDbA.getInstance(getApplicationContext());
         dbAccess.open();
 
         initializeArrayData(dbAccess);
@@ -51,7 +51,7 @@ public class Activity_RaoultsLawCalculator extends AppCompatActivity {
         retrieveVariables();
     }
 
-    private void initializeArrayData(DatabaseAccess databaseAccess) {
+    private void initializeArrayData(ParametersDbA databaseAccess) {
         ChemicalSpecies.add("Select...");
         databaseAccess.PopulateArrayString("ANTOINE", "CHEMICAL_SPECIES", ChemicalSpecies);
 
