@@ -16,7 +16,7 @@ public class LessonsDbA {
     //private constructor so that object creation from outside the class is avoided
     private LessonsDbA(Context context)
     {
-        this.openHelper = new ParametersDbOHelper(context);
+        this.openHelper = new LessonsDbOHelper(context);
     }
 
     //to return the single instance of database;

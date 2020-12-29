@@ -25,7 +25,7 @@ public class Activity_Lesson extends AppCompatActivity {
 
         initializeViews();
 
-        numChapters = 5;
+        numChapters = 6;
 
         chapters = Model_Chapter.generateChapters(numChapters, generateLessons(numChapters));
 

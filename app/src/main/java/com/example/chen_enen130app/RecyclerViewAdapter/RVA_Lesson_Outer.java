@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.chen_enen130app.DataFiles.Model_Chapter;
+import com.example.chen_enen130app.DatabaseAccessibility.LessonsDbA;
 import com.example.chen_enen130app.R;
 
 import java.util.ArrayList;
@@ -19,10 +20,18 @@ import java.util.ArrayList;
 public class RVA_Lesson_Outer extends RecyclerView.Adapter<RVA_Lesson_Outer.ViewHolder> {
     Context context;
     ArrayList<Model_Chapter> chapters;
+    LessonsDbA lDbA;
+    ArrayList<String> chapterNames;
 
     public RVA_Lesson_Outer(Context context, ArrayList<Model_Chapter> chapters) {
         this.context = context;
         this.chapters = chapters;
+        chapterNames = new ArrayList<>();
+
+        lDbA = LessonsDbA.getInstance(this.context);
+        lDbA.open();
+        lDbA.PopulateArrayString("Chapter_Names", "Chapter_Names", chapterNames);
+
     }
 
     @NonNull
@@ -36,6 +45,9 @@ public class RVA_Lesson_Outer extends RecyclerView.Adapter<RVA_Lesson_Outer.View
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.setInnerRecyclerView(position);
         holder.setData(position);
+
+        holder.chapterName.setText(chapterNames.get(position));
+
     }
 
     @Override
