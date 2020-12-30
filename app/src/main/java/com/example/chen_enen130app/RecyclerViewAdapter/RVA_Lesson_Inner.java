@@ -11,11 +11,15 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.chen_enen130app.DataFiles.Model_Chapter;
+import com.example.chen_enen130app.DatabaseAccessibility.LessonsDbA;
 import com.example.chen_enen130app.R;
+
+import java.util.ArrayList;
 
 public class RVA_Lesson_Inner extends RecyclerView.Adapter<RVA_Lesson_Inner.ViewHolder> {
     Context context;
     Model_Chapter chapter;
+    ArrayList<String> lessonNames;
 
     public RVA_Lesson_Inner(Context context, Model_Chapter chapter) {
         this.context = context;

@@ -31,7 +31,6 @@ public class RVA_Lesson_Outer extends RecyclerView.Adapter<RVA_Lesson_Outer.View
         lDbA = LessonsDbA.getInstance(this.context);
         lDbA.open();
         lDbA.PopulateArrayString("Chapter_Names", "Chapter_Names", chapterNames);
-
     }
 
     @NonNull
