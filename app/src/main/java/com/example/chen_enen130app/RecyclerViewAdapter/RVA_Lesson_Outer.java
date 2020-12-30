@@ -22,15 +22,18 @@ public class RVA_Lesson_Outer extends RecyclerView.Adapter<RVA_Lesson_Outer.View
     ArrayList<Model_Chapter> chapters;
     LessonsDbA lDbA;
     ArrayList<String> chapterNames;
+    ArrayList<String> chapterDescription;
 
     public RVA_Lesson_Outer(Context context, ArrayList<Model_Chapter> chapters) {
         this.context = context;
         this.chapters = chapters;
         chapterNames = new ArrayList<>();
+        chapterDescription = new ArrayList<>();
 
         lDbA = LessonsDbA.getInstance(this.context);
         lDbA.open();
         lDbA.PopulateArrayString("Chapter_Names", "Chapter_Names", chapterNames);
+        lDbA.PopulateArrayString("Chapter_Names", "Chapter_Description", chapterDescription);
 
     }
 
@@ -47,6 +50,7 @@ public class RVA_Lesson_Outer extends RecyclerView.Adapter<RVA_Lesson_Outer.View
         holder.setData(position);
 
         holder.chapterName.setText(chapterNames.get(position));
+        holder.chapterDescription.setText(chapterDescription.get(position));
 
     }
 
